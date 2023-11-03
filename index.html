@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width device-width, initial-scale=1.0">
+    <title>Onlineshopping | Dailystyle</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified CSS
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+Optional theme
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+ Latest compiled and minified JavaScript
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+
+</head>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <a href="#">
+                        <img src="image/logo.png" width="135px">
+                    </a>
+                </div>
+                <nav>
+                    <ul id="MenuItems">
+                        <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                        <li><a href="products.html"><i class="fa fa-server"></i> Products</a></li>
+                        <div class="dropdown">
+                            <button class="dropbtn"><i class="fa fa-user-o"></i> Profiles </button>
+                            <div class="dropdown-content">
+                                <a href="signup.html">SIGNUP</a>
+                                <a href="login.html">LOGIN</a>
+                                <a href="#">HELP US</a>
+                            </div>
+                        </div>
+                        <!-- <li><a href=""><i class="fa fa-user-o"></i> Profiles</a></li> -->
+                        <li><a href=""><i class="fa fa-shopping-bag"></i> Cart</a></li>
+                        <li><a href=""><i class="fa fa-heart-o"></i> Wishlist</a></li>
+                    </ul>
+                </nav>
+                <img src="image/menu.png" class="menu-icon" onclick="menutoggle()">
+                <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    <h1>Give Your Dailylife <br> In New Style!</h1>
+                    <p>Success isn't always about hard work. It's about consistency. <br>
+                        consistent smart work gains success.
+                    </p>
+                    <a href="" class="btn">Explore more &#8595</a>
+                </div>
+                <div class="col-2">
+                    <!-- <img src="image/row2img.png"> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!----------------Features Categories---------------------->
+    <div class="categories">
+        <div class="small-container fade">
+            <h2 class="title">DEALS OF THE DAY. . .</h2>
+            <div class="row">
+                <div class="col-3">
+                    <img src="image/31.png" alt="">
+                </div>
+                <div class="col-3">
+                    <img src="image/43.png" alt="">
+                </div>
+                <div class="col-3">
+                    <img src="image/44.png" alt="">
+                </div>
+                <div class="col-3">
+                    <img src="image/pro1.png" alt="">
+                </div>
+                <div class="col-3">
+                    <img src="image/pro5.png" alt="">
+                </div>
+                <div class="col-3">
+                    <img src="image/pro10.png" alt="">
+                </div>
+            </div>
+            <!-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a> -->
+        </div>
+    </div>
+    <!---------------Banners----------------------->
+
+    <!-- Slideshow container -->
+    <div class="slideshow-container">
+
+        <!-- Full-width images with number and caption text -->
+        <div class="mySlides fade">
+            <div class="numbertext">1 / 5</div>
+            <img src="image/ban2cra.png" style="width:100%">
+            <!-- <div class="text">
+                <a href="" class="">Explore more &#8594</a>
+            </div> -->
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">2 / 5</div>
+            <img src="image/85.png" style="width:100%">
+            <div class="text">
+                <a href="" class="">Explore more &#8594</a>
+            </div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 5</div>
+            <img src="image/bancra.png" style="width:100%">
+            <div class="text">
+                <a href="" class="">Explore more &#8594</a>
+            </div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">4 / 5</div>
+            <img src="image/93.png" style="width:100%">
+            <div class="text">
+                <a href="" class="">Explore more &#8594</a>
+            </div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">5 / 5</div>
+            <img src="image/91.png" style="width:100%">
+            <div class="text">
+                <a href="" class="">Explore more &#8594</a>
+            </div>
+        </div>
+
+        <!-- Next and previous buttons -->
+        <!-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a> -->
+    </div>
+    <br>
+
+    <!-- The dots/circles -->
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+    </div>
+
+    <!----------------Features products---------------------->
+    <div class="small-container">
+        <h2 class="title">TOP PICKS PRODUCTS</h2>
+        <div class="row">
+            <div class="col-4">
+                <a href="productdetails.html">
+                    <img src="image/58.png">
+                </a>
+                <h4>Aloevera Cream</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <!-- <p>₹ 399</p> -->
+            </div>
+            <div class="col-4">
+                <img src="image/59.png">
+                <h4>Aloevera Cream</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <!-- <p>₹ 399</p> -->
+            </div>
+            <div class="col-4">
+                <img src="image/60.png">
+                <h4>Aloevera Cream</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <!-- <p>₹ 399</p> -->
+            </div>
+            <div class="col-4">
+                <img src="image/79.png">
+                <h4>Aloevera Cream</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <!-- <p>₹ 399</p> -->
+            </div>
+            <div class="col-4">
+                <img src="image/61.png">
+                <h4>Aloevera Cream</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <!-- <p>₹ 399</p> -->
+            </div>
+            <div class="col-4">
+                <img src="image/70.png">
+                <h4>Aloevera Cream</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <!-- <p>₹ 399</p> -->
+            </div>
+        </div>
+
+        <!-- ------------------------------------- -->
+        <h2 class="title">NEW IN TOP BRANDS</h2>
+        <div class="row">
+            <div class="col-4">
+                <img src="image/61.png">
+                <h4>Aloevera Cream</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <!-- <p>₹ 399</p> -->
+            </div>
+            <div class="col-4">
+                <img src="image/62.png">
+                <h4>Aloevera Cream</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <!-- <p>₹ 399</p> -->
+            </div>
+            <div class="col-4">
+                <img src="image/63.png">
+                <h4>Aloevera Cream</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <!-- <p>₹ 399</p> -->
+            </div>
+            <div class="col-4">
+                <img src="image/64.png">
+                <h4>Aloevera Cream</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <!-- <p>₹ 399</p> -->
+            </div>
+            <div class="col-4">
+                <img src="image/65.png">
+                <h4>Aloevera Cream</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <!-- <p>₹ 399</p> -->
+            </div>
+            <div class="col-4">
+                <img src="image/67.png">
+                <h4>Aloevera Cream</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <!-- <p>₹ 399</p> -->
+            </div>
+            <div class="col-4">
+                <img src="image/78.png">
+                <h4>Aloevera Cream</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <!-- <p>₹ 399</p> -->
+            </div>
+            <div class="col-4">
+                <img src="image/68.png">
+                <h4>Aloevera Cream</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <!-- <p>₹ 399</p> -->
+            </div>
+            <div class="col-4">
+                <img src="image/61.png">
+                <h4>Aloevera Cream</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <!-- <p>₹ 399</p> -->
+            </div>
+            <div class="col-4">
+                <img src="image/78.png">
+                <h4>Aloevera Cream</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </div>
+                <!-- <p>₹ 399</p> -->
+            </div>
+            <div class="col-4">
+                <img src="image/63.png">
+                <h4>Aloevera Cream</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <!-- <p>₹ 399</p> -->
+            </div>
+            <div class="col-4">
+                <img src="image/78.png">
+                <h4>Aloevera Cream</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </div>
+                <!-- <p>₹ 399</p> -->
+            </div>
+        </div>
+
+        <!--------------------------offer------------------------------>
+        <div class="offer">
+            <div class="small-container">
+                <div class="row">
+                    <div class="col-2">
+                        <img src="image/smart.png" class="offer-img">
+                    </div>
+                    <div class="col-2">
+                        <p>Exclusively Available on Dailystyle</p>
+                        <h1>Smart Watch P7</h1>
+                        <small>
+
+                            BoAt has launched its Wave Ultima smartwatch in India. This Bluetooth calling smartwatch
+                            features a Curve Arc display which comes with crack resistance protection. The Wave
+                            Ultima
+                            smartwatch features a Bluetooth v5.
+
+                        </small>
+                        <a href="" class="btn">Buy Now &#8593</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+<!-- --------------------more Brands----------------------  -->
+        <div class="small-container">
+            <h2 class="title">DEALS ON TOP BRANDS</h2>
+            <div class="row">
+                <div class="col-4">
+                    <a href="productdetails.html">
+                        <img src="image/98.png">
+                    </a>
+                    <h4>Aloevera Cream</h4>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-o"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                    <!-- <p>₹ 399</p> -->
+                </div>
+                <div class="col-4">
+                    <img src="image/99.png">
+                    <h4>Aloevera Cream</h4>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                    <!-- <p>₹ 399</p> -->
+                </div>
+                <div class="col-4">
+                    <img src="image/100.png">
+                    <h4>Aloevera Cream</h4>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                    <!-- <p>₹ 399</p> -->
+                </div>
+                <div class="col-4">
+                    <img src="image/102.png">
+                    <h4>Aloevera Cream</h4>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-o"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                    <!-- <p>₹ 399</p> -->
+                </div>
+                <div class="col-4">
+                    <img src="image/103.png">
+                    <h4>Aloevera Cream</h4>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-o"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                    <!-- <p>₹ 399</p> -->
+                </div>
+                <div class="col-4">
+                    <img src="image/104.png">
+                    <h4>Aloevera Cream</h4>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-o"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                    <!-- <p>₹ 399</p> -->
+                </div>
+            </div>
+
+        <!-- -------------testimonial--------------------- -->
+
+        <h2 class="title">DAILYSTYLE LUXE PRODUCTS</h2>
+        <div class="row">
+            <div class="col-4">
+                <img src="image/106.png">
+                <h4>Aloevera Cream</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <!-- <p>₹ 399</p> -->
+            </div>
+            <div class="col-4">
+                <img src="image/107.png">
+                <h4>Aloevera Cream</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <!-- <p>₹ 399</p> -->
+            </div>
+            <div class="col-4">
+                <img src="image/108.png">
+                <h4>Aloevera Cream</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <!-- <p>₹ 399</p> -->
+            </div>
+            <div class="col-4">
+                <img src="image/115.png">
+                <h4>Aloevera Cream</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <!-- <p>₹ 399</p> -->
+            </div>
+            <div class="col-4">
+                <img src="image/110.png">
+                <h4>Aloevera Cream</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <!-- <p>₹ 399</p> -->
+            </div>
+            <div class="col-4">
+                <img src="image/113.png">
+                <h4>Aloevera Cream</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <!-- <p>₹ 399</p> -->
+            </div>
+            <div class="col-4">
+                <img src="image/117.png">
+                <h4>Aloevera Cream</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <!-- <p>₹ 399</p> -->
+            </div>
+            <div class="col-4">
+                <img src="image/116.png">
+                <h4>Aloevera Cream</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <!-- <p>₹ 399</p> -->
+            </div>
+            <div class="col-4">
+                <img src="image/111.png">
+                <h4>Aloevera Cream</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <!-- <p>₹ 399</p> -->
+            </div>
+            <div class="col-4">
+                <img src="image/119.png">
+                <h4>Aloevera Cream</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </div>
+                <!-- <p>₹ 399</p> -->
+            </div>
+            <div class="col-4">
+                <img src="image/118.png">
+                <h4>Aloevera Cream</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <!-- <p>₹ 399</p> -->
+            </div>
+            <div class="col-4">
+                <img src="image/121.png">
+                <h4>Aloevera Cream</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </div>
+                <!-- <p>₹ 399</p> -->
+            </div>
+        </div>
+
+        <!-- -------------testimonial---------------------
+        <div class="testimonial">
+            <div class="small-container">
+                <div class="row">
+                    <div class="col-3">
+                        <i class="fa fa-quote-left"></i>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae,
+                            aliquid accusamus? Voluptatum odit ut beatae. Voluptatem corrupti necessitatibus iusto modi?
+                        </p>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                        </div>
+                        <img src="image/sam2.jpg">
+                        <h3>Model</h3>
+                    </div>
+                    <div class="col-3">
+                        <i class="fa fa-quote-left"></i>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae,
+                            aliquid accusamus? Voluptatum odit ut beatae. Voluptatem corrupti necessitatibus iusto modi?
+                        </p>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                        </div>
+                        <img src="image/sam2.jpg">
+                        <h3>Model</h3>
+                    </div>
+                    <div class="col-3">
+                        <i class="fa fa-quote-left"></i>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae,
+                            aliquid accusamus? Voluptatum odit ut beatae. Voluptatem corrupti necessitatibus iusto modi?
+                        </p>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                        </div>
+                        <img src="image/sam2.jpg">
+                        <h3>Model</h3>
+                    </div>
+                    <div class="col-3">
+                        <i class="fa fa-quote-left"></i>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae,
+                            aliquid accusamus? Voluptatum odit ut beatae. Voluptatem corrupti necessitatibus iusto modi?
+                        </p>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                        </div>
+                        <img src="image/sam2.jpg">
+                        <h3>Model</h3>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- brands for him -->
+
+        <div class="him-brands">
+            <h2 class="title">BRANDS FOR HIM</h2>
+            <div class="small-container">
+                <div class="row">
+                    <div class="col-6">
+                        <img src="image/193.png">
+                    </div>
+                    <div class="col-6">
+                        <img src="image/192.png">
+                    </div>
+                    <div class="col-6">
+                        <img src="image/190.png">
+                    </div>
+                    <div class="col-6">
+                        <img src="image/191.png">
+                    </div>
+                    <div class="col-6">
+                        <img src="image/188.png">
+                    </div>
+                    <div class="col-6">
+                        <img src="image/189.png">
+                    </div>
+                    <div class="col-6">
+                        <img src="image/187.png">
+                    </div>
+                    <div class="col-6">
+                        <img src="image/186.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- brands for her -->
+
+        <div class="him-brands">
+            <h2 class="title">BRANDS FOR HER</h2>
+            <div class="small-container">
+                <div class="row">
+                    <div class="col-6">
+                        <img src="image/181.png">
+                    </div>
+                    <div class="col-6">
+                        <img src="image/178.png">
+                    </div>
+                    <div class="col-6">
+                        <img src="image/185.png">
+                    </div>
+                    <div class="col-6">
+                        <img src="image/179.png">
+                    </div>
+                    <div class="col-6">
+                        <img src="image/180.png">
+                    </div>
+                    <div class="col-6">
+                        <img src="image/183.png">
+                    </div>
+                    <div class="col-6">
+                        <img src="image/184.png">
+                    </div>
+                    <div class="col-6">
+                        <img src="image/182.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- brands for kids -->
+
+        <div class="him-brands">
+            <h2 class="title">BRANDS FOR KIDS</h2>
+            <div class="small-container">
+                <div class="row">
+                    <div class="col-6">
+                        <img src="image/194.png">
+                    </div>
+                    <div class="col-6">
+                        <img src="image/195.png">
+                    </div>
+                    <div class="col-6">
+                        <img src="image/196.png">
+                    </div>
+                    <div class="col-6">
+                        <img src="image/197.png">
+                    </div>
+                    <div class="col-6">
+                        <img src="image/198.png">
+                    </div>
+                    <div class="col-6">
+                        <img src="image/199.png">
+                    </div>
+                    <div class="col-6">
+                        <img src="image/200.png">
+                    </div>
+                    <div class="col-6">
+                        <img src="image/197.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!----------------------Brands---------------------->
+        <div class="brands">
+            <h2 class="title">OURS TOP BRANDS</h2>
+            <div class="small-container">
+                <div class="row">
+                    <div class="col-5">
+                        <img src="image/173.png">
+                    </div>
+                    <div class="col-5">
+                        <img src="image/172.png">
+                    </div>
+                    <div class="col-5">
+                        <img src="image/174.png">
+                    </div>
+                    <div class="col-5">
+                        <img src="image/175.png">
+                    </div>
+                    <div class="col-5">
+                        <img src="image/176.png">
+                    </div>
+                    <div class="col-5">
+                        <img src="image/177.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!---------------------------Scroll on top ---------------->
+
+        <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+        <!---------------------------footer---------------->
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col-1">
+                        <h3>For More Better Experience Download Our App.</h3>
+                        <p>Download App for ios and Android.</p>
+                        <div class="app-logo">
+                            <img src="image/81.png">
+                            <img src="image/81.png">
+                        </div>
+                    </div>
+                    <div class="footer-col-2">
+                        <img src="image/logo.png" width="130px">
+                        <p>India’s no. 1 online fashion destination justifies its fashion relevance by bringing
+                            something new and chic to the table on the daily.
+                            Fashion trends seem to change at lightning speed, yet the Dailystyle shopping app has
+                            managed to keep up without any hiccups. </p>
+                    </div>
+                    <div class="footer-col-3">
+                        <h3>Useful Links.</h3>
+                        <ul>
+                            <li>Coupons</li>
+                            <li>Gift Voucher</li>
+                            <li>Return Policy</li>
+                            <li>Contact Us</li>
+                        </ul>
+                    </div>
+                    <div class="footer-col-4">
+                        <div class="app-logo">
+                            <img src="image/123.png">
+                            <h3>Return within 30days <p>of receiving your order</p>
+                            </h3>
+                            <img src="image/122.png">
+                            <h3>100% ORIGINAL <p>guarantee for all products at Dailylife.</p>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <p class="copyright">Copyrigth 2023 - Ecom Project
+                    - KEEP IN TOUCH
+                    <a href="https://www.instagram.com/?__coig_restricted=1"><i class="fa fa-facebook"></i></a>
+                    <i class="fa fa-instagram"></i>
+                    <i class="fa fa-twitter"></i>
+                    <i class="fa fa-youtube"></i>
+                </p>
+            </div>
+        </div>
+
+
+
+
+        <!-- Script for Menu toggle -->
+
+        <script>
+            var MenuItems = document.getElementById("MenuItems");
+            MenuItems.style.maxHeight = "0px";
+            function menutoggle() {
+                if (MenuItems.style.maxHeight == "0px") {
+
+                    MenuItems.style.maxHeight = "100%";
+                }
+                else {
+                    MenuItems.style.maxHeight = "0px";
+                }
+            }
+
+                // function closeNav() {
+                //     document.getElementById("mySidenav").style.width = "0";
+                // }
+
+        </script>
+
+
+        <!-- Scripts for crousel of images -->
+        <script>
+            let slideIndex = 1;
+            showSlides(slideIndex);
+
+            // Next/previous controls
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            // Thumbnail image controls
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+                let i;
+                let slides = document.getElementsByClassName("mySlides");
+                let dots = document.getElementsByClassName("dot");
+                if (n > slides.length) { slideIndex = 1 }
+                if (n < 1) { slideIndex = slides.length }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+            }
+        </script>
+
+        <!-- Script for scroll on button  -->
+
+        <script>
+            // Get the button
+            let mybutton = document.getElementById("myBtn");
+
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function () { scrollFunction() };
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    mybutton.style.display = "block";
+                } else {
+                    mybutton.style.display = "none";
+                }
+            }
+            function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+        </script>
+</body>
+
+</html>
