@@ -1,2 +1,1 @@
-# Ecom
-Pure html,css,js
+#Ecommerce webpage using HTML, CSS and JavaScript only.
