@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="../style/navbar/style.css" />
+    <link rel="stylesheet" href="../style/signup/style.css" />
+  </head>
+
+  <body>
+    <!-- Header content -->
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+          <img src="../image/logo.png" alt="Logo" width="125" />
+        </div>
+        <nav>
+          <ul id="MenuItems">
+            <li>
+              <a href="../index.html"><i class="fa fa-home"></i> Home</a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-server"></i> Products</a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-user-o"></i> Profiles</a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-shopping-bag"></i> Cart</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-container">
+      <form class="modal-content" onsubmit="return validateForm(event)">
+        <div class="container">
+          <h1>Sign Up</h1>
+          <p style="text-align: center; margin-bottom: 1rem">
+            Please fill in this form to create an account.
+          </p>
+          <hr />
+
+          <label for="email"><b>Email</b></label>
+          <input
+            type="text"
+            placeholder="Enter Email"
+            name="email"
+            id="email"
+            required
+          />
+          <div id="emailError" class="error">
+            Please enter a valid email address
+          </div>
+
+          <label for="psw"><b>Password</b></label>
+          <input
+            type="password"
+            placeholder="Enter Password"
+            name="psw"
+            id="psw"
+            required
+          />
+          <div id="pswError" class="error">
+            Password must be at least 8 characters long
+          </div>
+
+          <label for="psw-repeat"><b>Repeat Password</b></label>
+          <input
+            type="password"
+            placeholder="Repeat Password"
+            name="psw-repeat"
+            id="psw-repeat"
+            required
+          />
+          <div id="pswRepeatError" class="error">Passwords do not match</div>
+
+          <label>
+            <input
+              type="checkbox"
+              checked="checked"
+              name="remember"
+              style="margin-bottom: 15px"
+            />
+            Remember me
+          </label>
+
+          <p class="terms">
+            By creating an account you agree to our
+            <a href="#" style="color: dodgerblue">Terms & Privacy</a>.
+          </p>
+          <p class="terms">
+            If You have already register?
+            <a href="#" style="color: dodgerblue" onclick="onLoginClick()"
+              >LogIn Here</a
+            >.
+          </p>
+
+          <div class="button-group">
+            <button type="button" class="cancelbtn" onclick="onCancelClick()">
+              Cancel
+            </button>
+            <button type="submit" class="signupbtn">Sign Up</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <script src="../script/signup.js"></script>
+  </body>
+</html>

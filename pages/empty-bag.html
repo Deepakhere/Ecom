@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout Process</title>
+    <link rel="stylesheet" href="../style/navbar/style.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, sans-serif;
+      }
+
+      .empty-bag-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .stepper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 50px;
+        padding: 20px 0;
+        border-bottom: 1px solid #eee;
+      }
+
+      .step {
+        display: flex;
+        align-items: center;
+        color: #666;
+      }
+
+      .step.active {
+        color: #ff4081;
+      }
+
+      .step-divider {
+        width: 100px;
+        height: 1px;
+        background: #ccc;
+        margin: 0 15px;
+      }
+
+      .empty-bag {
+        text-align: center;
+        padding: 50px 20px;
+      }
+
+      .bag-icon {
+        font-size: 48px;
+        color: #ff4081;
+        margin-bottom: 20px;
+      }
+
+      .empty-bag h2 {
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      .empty-bag p {
+        color: #666;
+        margin-bottom: 20px;
+      }
+
+      .btn {
+        background: #ff4081;
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        transition: background 0.3s;
+      }
+
+      .btn:hover {
+        background: #f50057;
+      }
+
+      .payment-methods {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 50px;
+        flex-wrap: wrap;
+      }
+
+      .payment-methods img {
+        height: 30px;
+        object-fit: contain;
+        opacity: 0.6;
+        transition: opacity 0.3s;
+      }
+
+      .payment-methods img:hover {
+        opacity: 1;
+      }
+
+      .help-text {
+        text-align: right;
+        margin-top: 20px;
+        color: #666;
+        font-size: 18px;
+      }
+
+      .step-content {
+        display: none;
+      }
+
+      .step-content.active {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+          <img src="../image/logo.png" alt="Logo" width="125" />
+        </div>
+        <nav>
+          <ul id="MenuItems">
+            <li>
+              <a href="../index.html"><i class="fa fa-home"></i> Home</a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-server"></i> Products</a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-user-o"></i> Profiles</a>
+            </li>
+            <li>
+              <div class="cart-notify-container">
+                <a href="./pages/cart.html" class="cart-link">
+                  <span class="cart-badge" id="cart-counter">0</span>
+                  Wishlist
+                </a>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div class="empty-bag-container">
+      <div class="step-content active" id="bag-content">
+        <div class="empty-bag">
+          <div class="bag-icon">🛍️</div>
+          <h2>Hey, it feels so light!</h2>
+          <p>There is nothing in your bag. Let's add some items.</p>
+          <button class="btn">ADD ITEMS FROM WISHLIST</button>
+        </div>
+      </div>
+
+      <div class="payment-methods">
+        <img src="/api/placeholder/60/40" alt="Visa" />
+        <img src="/api/placeholder/60/40" alt="Mastercard" />
+        <img src="/api/placeholder/60/40" alt="American Express" />
+        <img src="/api/placeholder/60/40" alt="Diners Club" />
+        <img src="/api/placeholder/60/40" alt="Net Banking" />
+        <img src="/api/placeholder/60/40" alt="UPI" />
+        <img src="/api/placeholder/60/40" alt="RuPay" />
+        <img src="/api/placeholder/60/40" alt="PayPal" />
+      </div>
+
+      <div class="help-text">Need Help? Contact Us</div>
+    </div>
+  </body>
+</html>

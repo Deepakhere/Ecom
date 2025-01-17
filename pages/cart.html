@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="../style/cart/style.css" />
+    <link rel="stylesheet" href="../style/navbar/style.css" />
+    <link rel="stylesheet" href="../style/checkout-form/style.css" />
+    <link rel="stylesheet" href="../style/payment/style.css" />
+    <link rel="stylesheet" href="../style/address/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+          <img src="../image/logo.png" alt="Logo" width="125" />
+        </div>
+        <nav>
+          <ul id="MenuItems">
+            <li>
+              <a href="../index.html"><i class="fa fa-home"></i> Home</a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-server"></i> Products</a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-user-o"></i> Profiles</a>
+            </li>
+            <li>
+              <div class="cart-notify-container">
+                <a href="./pages/cart.html" class="cart-link">
+                  <i class="fa fa-shopping-bag"></i>
+                  <span class="cart-badge" id="cart-counter">0</span>
+                  Wishlist
+                </a>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div class="step-container">
+      <div class="stepper">
+        <div class="step active" data-step="bag">BAG</div>
+        <div class="step-divider"></div>
+        <div class="step" data-step="address">ADDRESS</div>
+        <div class="step-divider"></div>
+        <div class="step" data-step="payment">PAYMENT</div>
+      </div>
+
+      <div class="step-content active" id="bag-content">
+        <div class="cart-container">
+          <div class="cart-section" id="product-details">
+            <div class="pin-code">
+              <span>Check delivery time & services</span>
+              <input
+                type="text"
+                class="pin-input"
+                placeholder="ENTER PIN CODE"
+              />
+            </div>
+
+            <div class="offers">
+              <h3>Available Offers</h3>
+              <p>
+                10% Instant Discount on HDFC Bank Credit Card EMI on a min spend
+                of ₹3,500. TCA
+              </p>
+              <button onclick="toggleOffers()" class="show-offers">
+                Show More ▼
+              </button>
+            </div>
+          </div>
+
+          <div class="price-details">
+            <h3>COUPONS</h3>
+            <div class="price-row">
+              <span>Apply Coupons</span>
+              <button onclick="applyCoupon()" class="apply-btn">APPLY</button>
+            </div>
+
+            <h3>SUPPORT TRANSFORMATIVE SOCIAL WORK IN INDIA</h3>
+            <div class="donation-options">
+              <button class="donation-btn">₹10</button>
+              <button class="donation-btn">₹20</button>
+              <button class="donation-btn">₹50</button>
+              <button class="donation-btn">₹100</button>
+            </div>
+
+            <h3>PRICE DETAILS (1 Item)</h3>
+            <div class="price-row">
+              <span>Total MRP</span>
+              <span>₹2,799</span>
+            </div>
+            <div class="price-row">
+              <span>Discount on MRP</span>
+              <span class="discount">-₹2,100</span>
+            </div>
+            <div class="price-row">
+              <span>Platform Fee</span>
+              <span>FREE</span>
+            </div>
+            <div class="price-row">
+              <span>Shipping Fee</span>
+              <span>FREE</span>
+            </div>
+            <hr />
+            <div class="price-row">
+              <strong>Total Amount</strong>
+              <strong>₹699</strong>
+            </div>
+
+            <button class="place-order-btn" onclick="checkUserLoggedIn()">
+              PLACE ORDER
+            </button>
+          </div>
+
+          <!-- Product size modal -->
+          <div id="size-modal-container"></div>
+        </div>
+      </div>
+
+      <div class="step-content" id="address-content">
+        <div class="checkout-container">
+          <h2 class="form-title">Add Shipping Address</h2>
+          <form id="addressForm" onsubmit="return validateForm(event)">
+            <!-- Contact Details Section -->
+            <div class="form-section">
+              <div class="form-row">
+                <div class="form-column">
+                  <div class="form-group">
+                    <label class="form-label required">Name</label>
+                    <input
+                      type="text"
+                      class="form-input"
+                      id="name"
+                      name="name"
+                      placeholder="Enter your full name"
+                    />
+                    <span class="error-message">Please enter a valid name</span>
+                  </div>
+                </div>
+                <div class="form-column">
+                  <div class="form-group">
+                    <label class="form-label required">Mobile Number</label>
+                    <input
+                      type="tel"
+                      class="form-input"
+                      id="mobile"
+                      name="mobile"
+                      placeholder="10-digit mobile number"
+                    />
+                    <span class="error-message"
+                      >Please enter a valid 10-digit mobile number</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Address Details Section -->
+            <div class="form-section">
+              <div class="form-row">
+                <div class="form-column">
+                  <div class="form-group">
+                    <label class="form-label required">Pincode</label>
+                    <input
+                      type="text"
+                      class="form-input"
+                      id="pincode"
+                      name="pincode"
+                      placeholder="6-digit pincode"
+                    />
+                    <span class="error-message"
+                      >Please enter a valid 6-digit pincode</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label required">Address</label>
+                <input
+                  type="text"
+                  class="form-input"
+                  id="address"
+                  name="address"
+                  placeholder="House No, Building, Street, Area"
+                />
+                <span class="error-message"
+                  >Please enter your complete address</span
+                >
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Locality / Town</label>
+                <input
+                  type="text"
+                  class="form-input"
+                  id="locality"
+                  name="locality"
+                  placeholder="Enter your locality or town"
+                />
+              </div>
+
+              <div class="form-row">
+                <div class="form-column">
+                  <div class="form-group">
+                    <label class="form-label required">City</label>
+                    <input
+                      type="text"
+                      class="form-input"
+                      id="city"
+                      name="city"
+                      placeholder="Enter your city"
+                    />
+                    <span class="error-message">Please enter your city</span>
+                  </div>
+                </div>
+                <div class="form-column">
+                  <div class="form-group">
+                    <label class="form-label required">State</label>
+                    <input
+                      type="text"
+                      class="form-input"
+                      id="state"
+                      name="state"
+                      placeholder="Enter your state"
+                    />
+                    <span class="error-message">Please enter your state</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Address Type Section -->
+            <div class="form-section">
+              <label class="form-label">Address Type</label>
+              <div class="address-type">
+                <label>
+                  <input type="radio" name="addressType" value="home" checked />
+                  <span>Home</span>
+                </label>
+                <label>
+                  <input type="radio" name="addressType" value="work" />
+                  <span>Work</span>
+                </label>
+              </div>
+            </div>
+
+            <button type="submit" class="submit-btn">
+              SAVE ADDRESS & CONTINUE TO PAY
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="step-content" id="payment-content">
+        <div class="payment-container" id="payment-section">
+          <div class="payment-options">
+            <h2 class="section-title">Choose Payment Method</h2>
+
+            <!-- UPI Payment -->
+            <div class="payment-method active">
+              <div class="payment-header">
+                <i class="fa fa-mobile-alt payment-icon"></i>
+                <span class="payment-title">UPI Payment</span>
+                <span class="offer-badge">Extra 5% off</span>
+              </div>
+              <div class="payment-content">
+                <div class="upi-options">
+                  <div
+                    class="upi-option"
+                    data-upi="Google Pay"
+                    data-img="/api/placeholder/80/40"
+                  >
+                    <img src="/api/placeholder/80/40" alt="GPay" />
+                    <div onclick="handleGpayClick()">Google Pay</div>
+                  </div>
+                  <div
+                    class="upi-option"
+                    data-upi="PhonePe"
+                    data-img="/api/placeholder/80/40"
+                  >
+                    <img src="/api/placeholder/80/40" alt="PhonePe" />
+                    <div>PhonePe</div>
+                  </div>
+                  <div
+                    class="upi-option"
+                    data-upi="Paytm"
+                    data-img="/api/placeholder/80/40"
+                  >
+                    <img src="/api/placeholder/80/40" alt="Paytm" />
+                    <div>Paytm</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--  UPI Modal -->
+            <div class="modal" id="upiModal">
+              <div class="modal-content">
+                <button class="modal-close" onclick="closeModal()">X</button>
+                <img id="upiImg" src="" alt="UPI Image" />
+                <h3 id="upiTitle"></h3>
+                <input type="text" id="upiField" placeholder="Enter UPI ID" />
+                <button class="pay-button">Pay</button>
+              </div>
+            </div>
+
+            <!-- Credit/Debit Card -->
+            <div class="payment-method">
+              <div class="payment-header">
+                <i class="fa fa-credit-card payment-icon"></i>
+                <span class="payment-title">Credit/Debit Card</span>
+                <span class="offer-badge">10% Instant Discount</span>
+              </div>
+              <div class="payment-content">
+                <div class="form-group">
+                  <label class="form-label">Card Number</label>
+                  <div class="form-input" id="card-number-element"></div>
+                  <span id="card-errors"></span>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Name on Card</label>
+                  <input
+                    type="text"
+                    class="form-input"
+                    id="customer-name"
+                    placeholder="Name as on card"
+                  />
+                  <span id="card-errors"></span>
+                </div>
+                <div style="display: flex; gap: 16px">
+                  <div class="form-group" style="flex: 1">
+                    <label class="form-label">Valid Thru</label>
+                    <div class="form-input" id="card-expiry-element"></div>
+                    <span id="card-errors"></span>
+                  </div>
+                  <div class="form-group" style="flex: 1">
+                    <label class="form-label">CVV</label>
+                    <div class="form-input" id="card-cvc-element"></div>
+                    <span id="card-errors"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Net Banking -->
+            <div class="payment-method">
+              <div class="payment-header">
+                <i class="fa fa-university payment-icon"></i>
+                <span class="payment-title">Net Banking</span>
+              </div>
+              <div class="payment-content">
+                <div class="upi-options">
+                  <div class="upi-option">
+                    <img src="/api/placeholder/80/40" alt="HDFC" />
+                    <div>HDFC</div>
+                  </div>
+                  <div class="upi-option">
+                    <img src="/api/placeholder/80/40" alt="ICICI" />
+                    <div>ICICI</div>
+                  </div>
+                  <div class="upi-option">
+                    <img src="/api/placeholder/80/40" alt="SBI" />
+                    <div>SBI</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cash on Delivery -->
+            <div class="payment-method">
+              <div class="payment-header">
+                <i class="fa fa-money payment-icon"></i>
+                <span class="payment-title">Cash on Delivery</span>
+              </div>
+              <div class="payment-content">
+                <p class="payment-info">
+                  Additional ₹40 will be charged for Cash on Delivery
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="order-summary">
+            <h2 class="section-title">Price Details</h2>
+            <div class="price-row">
+              <span>Total MRP</span>
+              <span>₹2,399</span>
+            </div>
+            <div class="price-row">
+              <span>Discount on MRP</span>
+              <span style="color: #03a685">-₹800</span>
+            </div>
+            <div class="price-row">
+              <span>Delivery Charges</span>
+              <span style="color: #03a685">FREE</span>
+            </div>
+            <div class="total-row">
+              <span>Total Amount</span>
+              <span id="total-amount">₹1,599</span>
+            </div>
+            <button class="pay-button" id="pay-btn" onclick="onClickPayNow()">
+              PAY NOW
+            </button>
+          </div>
+
+          <!-- Success Modal -->
+          <div id="success-modal" class="modal">
+            <div class="modal-content">
+              <span id="close-modal" class="close">&times;</span>
+              <h2>Payment Successful</h2>
+              <p>Your payment has been processed successfully. Thank you!</p>
+            </div>
+          </div>
+
+          <!-- Error Modal -->
+          <div id="error-modal" class="modal">
+            <div class="modal-content">
+              <span id="close-error" class="close">&times;</span>
+              <h2>Payment Alert</h2>
+              <p>Please fill in all the required fields.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="payment-methods">
+        <img src="/api/placeholder/60/40" alt="Visa" />
+        <img src="/api/placeholder/60/40" alt="Mastercard" />
+        <img src="/api/placeholder/60/40" alt="American Express" />
+        <img src="/api/placeholder/60/40" alt="Diners Club" />
+        <img src="/api/placeholder/60/40" alt="Net Banking" />
+        <img src="/api/placeholder/60/40" alt="UPI" />
+        <img src="/api/placeholder/60/40" alt="RuPay" />
+        <img src="/api/placeholder/60/40" alt="PayPal" />
+      </div>
+      <div class="help-text">Need Help? Contact Us</div>
+    </div>
+
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="../script/cart.js"></script>
+  </body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div
+      class="container"
+      style="max-width: 800px; margin: 0 auto; padding: 20px"
+    >
+      <h1>Shopping Cart</h1>
+      <div id="cart-items"></div>
+      <div class="cart-summary">
+        <h3>Cart Summary</h3>
+        <p>Total Items: <span id="total-items">0</span></p>
+        <p>Total Price: $<span id="total-price">0</span></p>
+        <button onclick="checkout()">Proceed to Checkout</button>
+      </div>
+    </div>
+
+    <script>
+      let cart = [
+        {
+          id: 1,
+          name: "Smart Watch P7",
+          price: 199.99,
+          quantity: 1,
+          image: "/api/placeholder/100/100",
+        },
+        {
+          id: 2,
+          name: "Wireless Earbuds",
+          price: 79.99,
+          quantity: 1,
+          image: "/api/placeholder/100/100",
+        },
+      ];
+
+      function renderCart() {
+        const cartContainer = document.getElementById("cart-items");
+        cartContainer.innerHTML = cart
+          .map(
+            (item) => `
+                <div class="cart-item">
+                    <img src="${item.image}" alt="${item.name}" style="width: 100px;">
+                    <div class="item-details">
+                        <h3>${item.name}</h3>
+                        <p>$${item.price}</p>
+                    </div>
+                    <div class="quantity-controls">
+                        <button onclick="updateQuantity(${item.id}, -1)">-</button>
+                        <span>${item.quantity}</span>
+                        <button onclick="updateQuantity(${item.id}, 1)">+</button>
+                        <button onclick="removeItem(${item.id})">Remove</button>
+                    </div>
+                </div>
+            `
+          )
+          .join("");
+        updateSummary();
+      }
+
+      function updateQuantity(itemId, change) {
+        const item = cart.find((i) => i.id === itemId);
+        if (item) {
+          item.quantity = Math.max(0, item.quantity + change);
+          if (item.quantity === 0) {
+            removeItem(itemId);
+          } else {
+            renderCart();
+          }
+        }
+      }
+
+      function removeItem(itemId) {
+        cart = cart.filter((item) => item.id !== itemId);
+        renderCart();
+      }
+
+      function updateSummary() {
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        const totalPrice = cart.reduce(
+          (sum, item) => sum + item.price * item.quantity,
+          0
+        );
+
+        document.getElementById("total-items").textContent = totalItems;
+        document.getElementById("total-price").textContent =
+          totalPrice.toFixed(2);
+      }
+
+      function checkout() {
+        alert(
+          "Proceeding to checkout with total: $" +
+            cart
+              .reduce((sum, item) => sum + item.price * item.quantity, 0)
+              .toFixed(2)
+        );
+      }
+
+      // Initial render
+      renderCart();
+    </script>
+  </body>
+</html> -->

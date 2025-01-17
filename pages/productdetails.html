@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width device-width, initial-scale=1.0" />
+    <title>All Products| Dailystyle</title>
+    <link rel="stylesheet" href="../style/style.css" />
+    <link rel="stylesheet" href="../style/product-details/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+          <a href="../index.html">
+            <img src="../image/logo.png" width="125px" />
+          </a>
+        </div>
+        <nav>
+          <ul id="MenuItems">
+            <li>
+              <a href="../index.html"><i class="fa fa-home"> Home</i></a>
+            </li>
+            <li>
+              <a href="../pages/products.html"
+                ><i class="fa fa-server"> Products</i></a
+              >
+            </li>
+            <li>
+              <a href="../pages/profiles.html"
+                ><i class="fa fa-user-o"> Profiles</i></a
+              >
+            </li>
+            <li>
+              <a href="../pages/cart.html"
+                ><i class="fa fa-shopping-bag"> Cart</i></a
+              >
+            </li>
+          </ul>
+        </nav>
+        <img src="../image/menu.png" class="menu-icon" onclick="menutoggle()" />
+      </div>
+    </div>
+
+    <!------------------single Product Details------------------------>
+    <div class="small-container single-product">
+      <div class="row">
+        <div class="col-2 single-product-image">
+          <img
+            src="../image/pro1.png"
+            width="50%"
+            height="100%"
+            id="ProductImg"
+          />
+
+          <div class="small-img-row single-product-small-image">
+            <div class="small-img-col">
+              <img
+                src="../image/pro9.png"
+                width="100%"
+                height="100%"
+                class="small-img"
+              />
+            </div>
+            <div class="small-img-col">
+              <img
+                src="../image/prod.png"
+                width="100%"
+                height="100%"
+                class="small-img"
+              />
+            </div>
+            <div class="small-img-col">
+              <img
+                src="../image/pro1.png"
+                width="100%"
+                height="100%"
+                class="small-img"
+              />
+            </div>
+            <div class="small-img-col">
+              <img
+                src="../image/prod.png"
+                width="100%"
+                height="100%"
+                class="small-img"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="col-2 product-details">
+          <h2 id="product-title">Pitch Printed Top by RDSTR</h2>
+          <span id="product-description"
+            >Unisex black Woven Design T-shirt</span
+          >
+          <div class="product-pricing">
+            <!-- Rating Section -->
+            <div class="rating-container">
+              <span class="rating"
+                >3.9 <i class="fa fa-star rate-star"></i
+              ></span>
+              <span class="horizontal-border"></span>
+              <span class="rating-count">72 Ratings</span>
+            </div>
+
+            <!-- Price Section -->
+            <div class="price-container">
+              <span class="current-price">₹699</span>
+              <span class="mrp">MRP <strike>₹2799</strike></span>
+              <span class="discount">(75% OFF)</span>
+            </div>
+
+            <div class="tax-info">inclusive of all taxes</div>
+          </div>
+
+          <div class="size-container">
+            <!-- Size Selection -->
+            <div class="size-selector">
+              <span class="size-label">SELECT SIZE (UK Size)</span>
+              <a href="#" class="size-chart">SIZE CHART ></a>
+            </div>
+            <!-- Size Options -->
+            <div class="size-options">
+              <div class="size-radio">
+                <input type="radio" id="s" name="size" value="S" />
+                <label for="s">S</label>
+              </div>
+              <div class="size-radio">
+                <input type="radio" id="m" name="size" value="M" />
+                <label for="m">M</label>
+              </div>
+              <div class="size-radio">
+                <input type="radio" id="l" name="size" value="L" />
+                <label for="l">L</label>
+              </div>
+              <div class="size-radio">
+                <input type="radio" id="xl" name="size" value="XL" />
+                <label for="xl">XL</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="quantity-container">
+            <div class="quantity-controls">
+              <span class="minus" onclick="decrementQuantity()"> - </span>
+              <span id="quantity">1</span>
+              <span class="plus" onclick="incrementQuantity()"> + </span>
+            </div>
+            <div class="btn" id="add-to-cart" onclick="addToCart()">
+              Add To Cart
+            </div>
+          </div>
+
+          <h3>Product Details</h3>
+          <br />
+          <p>
+            Give your summer wardrobe a style upgrade with RDSTR women's Active
+            One piece top it with a pair of shorts for your party outfit and
+            evening out with friends.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-------------------------title---------------------------->
+
+    <div class="small-container">
+      <div class="row row-2">
+        <h2>Related Products</h2>
+        <p onclick="onViewMoreClick()">View More >>></p>
+      </div>
+    </div>
+
+    <!------------------------products----------------------------->
+
+    <div class="small-container">
+      <div class="row">
+        <div class="col-4">
+          <img src="../image/40.png" />
+          <h4>Aloevera Cream</h4>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-o"></i>
+            <i class="fa fa-star-o"></i>
+          </div>
+          <p>₹ 399</p>
+        </div>
+        <div class="col-4">
+          <img src="../image/145.png" />
+          <h4>Aloevera Cream</h4>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-o"></i>
+            <i class="fa fa-star-o"></i>
+          </div>
+          <p>₹ 399</p>
+        </div>
+        <div class="col-4">
+          <img src="../image/134.png" />
+          <h4>Aloevera Cream</h4>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-o"></i>
+            <i class="fa fa-star-o"></i>
+          </div>
+          <p>₹ 399</p>
+        </div>
+        <div class="col-4">
+          <img src="../image/pro2.png" />
+          <h4>Aloevera Cream</h4>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-o"></i>
+            <i class="fa fa-star-o"></i>
+          </div>
+          <p>₹ 399</p>
+        </div>
+        <div class="col-4">
+          <img src="../image/pro3.png" />
+          <h4>Aloevera Cream</h4>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-o"></i>
+          </div>
+          <p>₹ 399</p>
+        </div>
+        <div class="col-4">
+          <img src="../image/pro4.png" />
+          <h4>Aloevera Cream</h4>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-o"></i>
+            <i class="fa fa-star-o"></i>
+          </div>
+          <p>₹ 399</p>
+        </div>
+      </div>
+    </div>
+
+    <!---------------------------footer---------------->
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="footer-col-1">
+            <h3>For More Better Experience Download Our App.</h3>
+            <p>Download App for ios and Android.</p>
+            <div class="app-logo">
+              <img src="../image/81.png" />
+              <img src="../image/81.png" />
+            </div>
+          </div>
+          <div class="footer-col-2">
+            <img src="../image/logo.png" width="130px" />
+            <p>
+              India’s no. 1 online fashion destination justifies its fashion
+              relevance by bringing something new and chic to the table on the
+              daily. Fashion trends seem to change at lightning speed, yet the
+              Dailystyle shopping app has managed to keep up without any
+              hiccups.
+            </p>
+          </div>
+          <div class="footer-col-3">
+            <h3>Useful Links.</h3>
+            <ul>
+              <li>Coupons</li>
+              <li>Gift Voucher</li>
+              <li>Return Policy</li>
+              <li>Contact Us</li>
+            </ul>
+          </div>
+        </div>
+        <hr />
+        <p class="copyright">Copyrigth 2023 - Ecom Project</p>
+      </div>
+    </div>
+
+    <script src="../script/product-details.js"></script>
+  </body>
+</html>

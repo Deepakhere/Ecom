@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Please Log In</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../style/navbar/style.css" />
+    <style>
+      .login-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        margin-top: 150px;
+      }
+
+      .title {
+        margin-bottom: 28px;
+        font-size: 20px;
+        font-weight: 600;
+        color: #282c3f;
+      }
+
+      .subtitle {
+        color: #95a5a6;
+        font-weight: 400;
+        font-size: 16px;
+        color: #94989f;
+        max-width: 380px;
+        margin: 10px auto 0;
+      }
+
+      .icon-container {
+        margin: 40px auto;
+        width: 100px;
+        height: 100px;
+      }
+
+      .login-button {
+        display: inline-block;
+        padding: 15px 51px;
+        background: white;
+        color: #3466e8;
+        border: 1px solid #3466e8;
+        border-radius: 4px;
+        font-size: 18px;
+        font-weight: 600;
+        cursor: pointer;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: all 0.2s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+          <img src="../image/logo.png" alt="Logo" width="125" />
+        </div>
+        <nav>
+          <ul id="MenuItems">
+            <li>
+              <a href="../index.html"><i class="fa fa-home"></i> Home</a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-server"></i> Products</a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-user-o"></i> Profiles</a>
+            </li>
+            <li>
+              <div class="cart-notify-container">
+                <a href="./pages/cart.html" class="cart-link">
+                  <i class="fa fa-shopping-bag"></i>
+                  <span class="cart-badge" id="cart-counter">0</span>
+                  cart
+                </a>
+              </div>
+            </li>
+            <li>
+              <div class="cart-notify-container">
+                <a href="./pages/cart.html" class="cart-link">
+                  <i class="fa fa-heart-o"></i>
+                  <span class="cart-badge" id="cart-counter">0</span>
+                  Wishlist
+                </a>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div class="login-container">
+      <h1 class="title">PLEASE LOG IN</h1>
+      <p class="subtitle">Login to view items in your wishlist.</p>
+
+      <div class="icon-container">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <!-- Main rectangle with sketchy effect -->
+          <path
+            d="M15,15 
+                       L85,15 
+                       Q90,15 90,20 
+                       L90,80 
+                       Q90,85 85,85 
+                       L15,85 
+                       Q10,85 10,80 
+                       L10,20 
+                       Q10,15 15,15"
+            fill="none"
+            stroke="#4DD0E1"
+            stroke-width="2"
+            style="stroke-linecap: round"
+          />
+
+          <!-- Sketchy lines for artistic effect -->
+          <path
+            d="M12,18 
+                       L88,18"
+            fill="none"
+            stroke="#4DD0E1"
+            stroke-width="1"
+            opacity="0.5"
+          />
+
+          <!-- Internal elements -->
+          <g fill="#FFB74D">
+            <!-- Arrow or document symbol -->
+            <path d="M35,40 L65,40 L50,55 Z" />
+            <!-- Lines -->
+            <rect x="35" y="60" width="30" height="3" rx="1.5" />
+            <rect x="40" y="68" width="20" height="3" rx="1.5" />
+          </g>
+        </svg>
+      </div>
+
+      <button class="login-button">LOGIN</button>
+    </div>
+
+    <script>
+      function onLoginClick() {
+        window.location.href = "./login.html";
+      }
+
+      document
+        .querySelector(".login-button")
+        .addEventListener("click", onLoginClick);
+
+      // Add this function to check for remembered email on page load
+      document.addEventListener("DOMContentLoaded", () => {
+        const rememberedEmail = localStorage.getItem("rememberedEmail");
+        if (rememberedEmail) {
+          document.getElementById("email").value = rememberedEmail;
+          document.querySelector('input[name="remember"]').checked = true;
+        }
+      });
+
+      function handleRememberMe() {
+        const email = document.getElementById("email").value;
+        const rememberMe = document.querySelector(
+          'input[name="remember"]'
+        ).checked;
+        if (rememberMe) {
+          localStorage.setItem("rememberedEmail", email);
+        } else {
+          localStorage.removeItem("rememberedEmail");
+        }
+      }
+
+      //   const wishlist = localStorage.getItem("wishlist");
+      //   if (wishlist) {
+      //     const wishlistItems = JSON.parse(wishlist);
+      //     if (wishlistItems.length === 0) {
+      //       window.location.href = "./empty-wishlist.html";
+      //     }
+      //   }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,114 @@
+/* Login Page Styling */
+.container-login {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.col {
+  flex: 1 1 40%;
+  padding: 26px;
+}
+
+.vl {
+  border-left: 2px solid #ddd;
+  height: 100%;
+  position: relative;
+  margin-left: 20px;
+}
+
+.vl-innertext {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -80%);
+  background-color: #f9f9f9;
+  padding: 5px 10px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  font-size: 14px;
+  font-weight: bold;
+  color: #555;
+}
+
+input,
+.btn {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin: 10px 0;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+input:focus,
+.btn:hover {
+  border-color: #333;
+}
+
+.btn {
+  cursor: pointer;
+}
+
+.fb {
+  background-color: #3b5998;
+  color: white;
+}
+
+.insta {
+  background-color: #e1306c;
+  color: white;
+}
+
+.google {
+  background-color: #dd4b39;
+  color: white;
+}
+
+input[type="submit"] {
+  background-color: #04aa6d;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.bottom-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.bottom-container a {
+  text-decoration: none;
+  color: #04aa6d;
+  font-size: 14px;
+}
+
+@media screen and (max-width: 768px) {
+  .row {
+    flex-direction: column;
+  }
+
+  .vl {
+    display: none;
+  }
+
+  .col {
+    flex: 1 1 100%;
+    text-align: center;
+  }
+}

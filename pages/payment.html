@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../style/payment/style.css" />
+  </head>
+  <body>
+    <div class="payment-container">
+      <div class="payment-options">
+        <h2 class="section-title">Choose Payment Method</h2>
+
+        <!-- UPI Payment -->
+        <div class="payment-method active">
+          <div class="payment-header">
+            <i class="fa fa-mobile-alt payment-icon"></i>
+            <span class="payment-title">UPI Payment</span>
+            <span class="offer-badge">Extra 5% off</span>
+          </div>
+          <div class="payment-content">
+            <div class="upi-options">
+              <div class="upi-option">
+                <img src="/api/placeholder/80/40" alt="GPay" />
+                <div>Google Pay</div>
+              </div>
+              <div class="upi-option">
+                <img src="/api/placeholder/80/40" alt="PhonePe" />
+                <div>PhonePe</div>
+              </div>
+              <div class="upi-option">
+                <img src="/api/placeholder/80/40" alt="Paytm" />
+                <div>Paytm</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Credit/Debit Card -->
+        <div class="payment-method">
+          <div class="payment-header">
+            <i class="fa fa-credit-card payment-icon"></i>
+            <span class="payment-title">Credit/Debit Card</span>
+            <span class="offer-badge">10% Instant Discount</span>
+          </div>
+          <div class="payment-content">
+            <div class="form-group">
+              <label class="form-label">Card Number</label>
+              <input
+                type="text"
+                class="form-input"
+                placeholder="XXXX XXXX XXXX XXXX"
+              />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Name on Card</label>
+              <input
+                type="text"
+                class="form-input"
+                placeholder="Name as on card"
+              />
+            </div>
+            <div style="display: flex; gap: 16px">
+              <div class="form-group" style="flex: 1">
+                <label class="form-label">Valid Thru</label>
+                <input type="text" class="form-input" placeholder="MM/YY" />
+              </div>
+              <div class="form-group" style="flex: 1">
+                <label class="form-label">CVV</label>
+                <input type="password" class="form-input" placeholder="CVV" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Net Banking -->
+        <div class="payment-method">
+          <div class="payment-header">
+            <i class="fa fa-university payment-icon"></i>
+            <span class="payment-title">Net Banking</span>
+          </div>
+          <div class="payment-content">
+            <div class="upi-options">
+              <div class="upi-option">
+                <img src="/api/placeholder/80/40" alt="HDFC" />
+                <div>HDFC</div>
+              </div>
+              <div class="upi-option">
+                <img src="/api/placeholder/80/40" alt="ICICI" />
+                <div>ICICI</div>
+              </div>
+              <div class="upi-option">
+                <img src="/api/placeholder/80/40" alt="SBI" />
+                <div>SBI</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cash on Delivery -->
+        <div class="payment-method">
+          <div class="payment-header">
+            <i class="fa fa-money-bill payment-icon"></i>
+            <span class="payment-title">Cash on Delivery</span>
+          </div>
+          <div class="payment-content">
+            <p class="payment-info">
+              Additional ₹40 will be charged for Cash on Delivery
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="order-summary">
+        <h2 class="section-title">Price Details</h2>
+        <div class="price-row">
+          <span>Total MRP</span>
+          <span>₹2,399</span>
+        </div>
+        <div class="price-row">
+          <span>Discount on MRP</span>
+          <span style="color: #03a685">-₹800</span>
+        </div>
+        <div class="price-row">
+          <span>Delivery Charges</span>
+          <span style="color: #03a685">FREE</span>
+        </div>
+        <div class="total-row">
+          <span>Total Amount</span>
+          <span>₹1,599</span>
+        </div>
+        <button class="pay-button">PAY NOW</button>
+      </div>
+    </div>
+
+    <script>
+      // Toggle payment methods
+      document.querySelectorAll(".payment-method").forEach((method) => {
+        method
+          .querySelector(".payment-header")
+          .addEventListener("click", () => {
+            // Remove active class from all methods
+            document.querySelectorAll(".payment-method").forEach((m) => {
+              m.classList.remove("active");
+            });
+            // Add active class to clicked method
+            method.classList.add("active");
+          });
+      });
+    </script>
+  </body>
+</html>
