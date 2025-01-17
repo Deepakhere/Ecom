@@ -425,22 +425,22 @@ const onClickPayNow = async () => {
   }
 };
 
-const modal = document.getElementById("upiModal");
-const upiImg = document.getElementById("upiImg");
-const upiTitle = document.getElementById("upiTitle");
-const upiField = document.getElementById("upiField");
+// const modal = document.getElementById("upiModal");
+// const upiImg = document.getElementById("upiImg");
+// const upiTitle = document.getElementById("upiTitle");
+// const upiField = document.getElementById("upiField");
 
-document.querySelectorAll(".upi-option").forEach((option) => {
-  option.addEventListener("click", () => {
-    const upiName = option.getAttribute("data-upi");
-    const upiImage = option.getAttribute("data-img");
-    upiImg.src = upiImage;
-    upiTitle.textContent = upiName;
-    upiField.value = "";
-    modal.style.display = "flex";
-  });
-});
+// document.querySelectorAll(".upi-option").forEach((option) => {
+//   option.addEventListener("click", () => {
+//     const upiName = option.getAttribute("data-upi");
+//     const upiImage = option.getAttribute("data-img");
+//     upiImg.src = upiImage;
+//     upiTitle.textContent = upiName;
+//     upiField.value = "";
+//     modal.style.display = "flex";
+//   });
+// });
 
-function closeModal() {
-  modal.style.display = "none";
-}
+// function closeModal() {
+//   modal.style.display = "none";
+// }

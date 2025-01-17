@@ -54,3 +54,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 const onClickInstagramAuth = () => {
   window.location.href = "http://localhost:4000/auth/instagram";
 };
+
+const cartCounter = document.getElementById("cart-counter");
+const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+cartCounter.textContent = cartItems.length;
+cartCounter.style.display = cartItems.length > 0 ? "block" : "0";
