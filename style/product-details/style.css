@@ -116,3 +116,45 @@
 .size-chart:hover {
   text-decoration: underline;
 }
+
+/* Base styles for all screen sizes remain as provided */
+
+/* Responsive Styles */
+@media screen and (max-width: 1024px) {
+}
+
+@media screen and (max-width: 768px) {
+}
+
+@media screen and (max-width: 576px) {
+  .rating {
+    font-size: 14px;
+  }
+
+  .rating-count {
+    font-size: 12px;
+  }
+
+  .current-price {
+    font-size: 22px;
+  }
+  .tax-info {
+    margin: 10px;
+  }
+  .mrp,
+  .discount {
+    font-size: 12px;
+  }
+
+  .tax-info {
+    font-size: 12px;
+  }
+
+  .size-label {
+    font-size: 20px;
+  }
+
+  .size-chart {
+    font-size: 12px;
+  }
+}

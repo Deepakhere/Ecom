@@ -10,8 +10,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"> -->
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -29,8 +29,8 @@
                     <ul id="MenuItems">
                         <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
                         <li><a href="#all-products"><i class="fa fa-server"></i> Products</a></li>
-                        <div class="dropdown">
-                            <button class="dropbtn"><i class="fa fa-user-o"></i> Profiles </button>
+                        <div class="dropdown profile-list">
+                            <button class="dropbtn"><i class="fa fa-user"></i> Profiles </button>
                             <div class="dropdown-content">
                                 <a href="./pages/signup.html">SIGNUP</a>
                                 <a href="./pages/login.html" id="login-text">LOGIN</a>
@@ -42,18 +42,18 @@
                                 <a href="./pages/cart.html" class="cart-link">
                                     <i class="fa fa-shopping-bag"></i>
                                     <span class="cart-badge" id="cart-counter">0</span>
-                                    Cart
+                                    <span class="cart-text">Cart</span>
                                 </a>
                             </div>
                         </li>
-                        <li><a href="./pages/empty-wishlist.html"><i class="fa fa-heart-o"></i> Wishlist</a></li>
+                        <li><a href="./pages/empty-wishlist.html"><i class="fa fa-heart"></i> Wishlist</a></li>
                     </ul>
                 </nav>
                 <img src="image/menu.png" class="menu-icon" onclick="menutoggle()">
                 <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
             </div>
             <div class="row">
-                <div class="col-2">
+                <div class="col-2 header-title">
                     <h1>Give Your Dailylife <br> In New Style!</h1>
                     <p>Success isn't always about hard work. It's about consistency. <br>
                         consistent smart work gains success.
@@ -100,12 +100,12 @@
     <div class="slideshow-container">
         <div class="mySlides fade">
             <div class="numbertext">1 / 5</div>
-            <img src="image/ban2cra.png" style="width:100%" height="100%">
+            <img src="image/banner-image/image1.png" style="width:100%" height="100%">
         </div>
 
         <div class="mySlides fade">
             <div class="numbertext">2 / 5</div>
-            <img src="image/85.png" style="width:100%">
+            <img src="image/banner-image/image2.png" style="width:100%">
             <div class="text">
                 <a href="">Explore more &#8594;</a>
             </div>
@@ -113,7 +113,7 @@
 
         <div class="mySlides fade">
             <div class="numbertext">3 / 5</div>
-            <img src="image/bancra.png" style="width:100%">
+            <img src="image/banner-image/image3.png" style="width:100%">
             <div class="text">
                 <a href="">Explore more &#8594;</a>
             </div>
@@ -121,7 +121,7 @@
 
         <div class="mySlides fade">
             <div class="numbertext">4 / 5</div>
-            <img src="image/93.png" style="width:100%">
+            <img src="image/banner-image/image4.png" style="width:100%">
             <div class="text">
                 <a href="">Explore more &#8594;</a>
             </div>
@@ -129,7 +129,7 @@
 
         <div class="mySlides fade">
             <div class="numbertext">5 / 5</div>
-            <img src="image/91.png" style="width:100%">
+            <img src="image/banner-image/image5.png" style="width:100%">
             <div class="text">
                 <a href="">Explore more &#8594;</a>
             </div>
@@ -374,7 +374,7 @@
         </div>
 
         <!--------------------------offer------------------------------>
-        <div class="offer">
+        <!-- <div class="offer">
             <div class="small-container">
                 <div class="row">
                     <div class="col-2">
@@ -394,8 +394,10 @@
                     </div>
                 </div>
             </div>
+        </div> -->
+        <div class="offer-banner">
+            <!-- <img src="image/banner-image/offer.png" alt="offer-banner"> -->
         </div>
-
         <!-- --------------------more Brands----------------------  -->
         <div class="small-container">
             <h2 class="title">DEALS ON TOP BRANDS</h2>
@@ -752,7 +754,7 @@
             </div>
 
             <!---------------------------Scroll on top ---------------->
-            <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+            <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa-regular fa-circle-up"></i></button>
 
             <!---------------------------footer---------------->
             <div class="footer">
@@ -762,8 +764,8 @@
                             <h3>For More Better Experience Download Our App.</h3>
                             <p>Download App for ios and Android.</p>
                             <div class="app-logo">
-                                <img src="image/81.png">
-                                <img src="image/81.png">
+                                <img src="image/footer-image/play-store.png">
+                                <img src="image/footer-image/app-store.png">
                             </div>
                         </div>
                         <div class="footer-col-2">
@@ -783,7 +785,7 @@
                             </ul>
                         </div>
                         <div class="footer-col-4">
-                            <div class="app-logo">
+                            <div class="footer-app-logo">
                                 <img src="image/123.png">
                                 <h3>Return within 30days <p>of receiving your order</p>
                                 </h3>
@@ -795,9 +797,9 @@
                     </div>
                     <hr>
                     <p class="copyright">Copyrigth 2023 - Ecom Project - KEEP IN TOUCH
-                        <i class="fa fa-instagram"></i>
-                        <i class="fa fa-twitter"></i>
-                        <i class="fa fa-youtube"></i>
+                        <i class="fa-brands fa-instagram"></i>
+                        <i class="fa-brands fa-twitter"></i>
+                        <i class="fa-brands fa-youtube"></i>
                     </p>
                 </div>
             </div>

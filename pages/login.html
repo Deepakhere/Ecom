@@ -14,9 +14,7 @@
     />
     <link
       rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-      crossorigin="anonymous"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
   </head>
 
@@ -35,10 +33,13 @@
               <a href="#"><i class="fa fa-server"></i> Products</a>
             </li>
             <li>
-              <a href="#"><i class="fa fa-user-o"></i> Profiles</a>
-            </li>
-            <li>
-              <a href="#"><i class="fa fa-shopping-bag"></i> Cart</a>
+              <div class="cart-notify-container">
+                <a href="./cart.html" class="cart-link">
+                  <i class="fa fa-shopping-bag"></i>
+                  <span class="cart-badge" id="cart-counter">0</span>
+                  Cart
+                </a>
+              </div>
             </li>
           </ul>
         </nav>
@@ -68,7 +69,8 @@
             <input type="submit" value="Login" />
           </form>
           <div class="bottom-container">
-            <a href="#">Forgot Password?</a> | <a href="#">Sign Up</a>
+            <a href="#">Forgot Password?</a> |
+            <a href="./signup.html">Sign Up</a>
           </div>
         </div>
         <div class="vl">
@@ -76,13 +78,13 @@
         </div>
         <div class="col">
           <button class="btn fb" onclick="onClickGoogleAuth()">
-            <i class="fa fa-facebook"></i> Login with Facebook
+            <i class="fa-brands fa-facebook"></i> Login with Facebook
           </button>
           <button class="btn insta" onclick="onClickInstagramAuth()">
-            <i class="fa fa-instagram"></i> Login with Instagram
+            <i class="fa-brands fa-instagram"></i> Login with Instagram
           </button>
           <button class="btn google" onclick="onClickGoogleAuth()">
-            <i class="fa fa-google"></i> Login with Google
+            <i class="fa-brands fa-google"></i> Login with Google
           </button>
         </div>
       </div>

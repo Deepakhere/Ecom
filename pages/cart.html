@@ -15,9 +15,7 @@
     />
     <link
       rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-      crossorigin="anonymous"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
   </head>
   <body>
@@ -35,11 +33,11 @@
               <a href="#"><i class="fa fa-server"></i> Products</a>
             </li>
             <li>
-              <a href="#"><i class="fa fa-user-o"></i> Profiles</a>
+              <a href="#"><i class="fa fa-user"></i> Profiles</a>
             </li>
             <li>
               <div class="cart-notify-container">
-                <a href="./pages/cart.html" class="cart-link">
+                <a href="./empty-wishlist.html" class="cart-link">
                   <i class="fa fa-shopping-bag"></i>
                   <span class="cart-badge" id="cart-counter">0</span>
                   Wishlist
@@ -286,24 +284,25 @@
                     data-upi="Google Pay"
                     data-img="/api/placeholder/80/40"
                   >
-                    <img src="/api/placeholder/80/40" alt="GPay" />
-                    <div onclick="handleGpayClick()">Google Pay</div>
+                    <!-- <img src="/api/placeholder/80/40" alt="GPay" /> -->
+                    <div onclick="handleGpayClick()">
+                      <i class="fa-brands fa-google-pay fa-2xl"></i>
+                    </div>
                   </div>
                   <div
                     class="upi-option"
                     data-upi="PhonePe"
                     data-img="/api/placeholder/80/40"
                   >
-                    <img src="/api/placeholder/80/40" alt="PhonePe" />
-                    <div>PhonePe</div>
+                    <div><i class="fa-brands fa-amazon-pay fa-2xl"></i></div>
                   </div>
                   <div
                     class="upi-option"
                     data-upi="Paytm"
                     data-img="/api/placeholder/80/40"
                   >
-                    <img src="/api/placeholder/80/40" alt="Paytm" />
-                    <div>Paytm</div>
+                    <!-- <img src="/api/placeholder/80/40" alt="Paytm" /> -->
+                    <div><i class="fa-brands fa-apple-pay fa-2xl"></i></div>
                   </div>
                 </div>
               </div>
@@ -366,15 +365,15 @@
               <div class="payment-content">
                 <div class="upi-options">
                   <div class="upi-option">
-                    <img src="/api/placeholder/80/40" alt="HDFC" />
+                    <img src="../image/netbanking/hdfc.png" alt="HDFC" />
                     <div>HDFC</div>
                   </div>
                   <div class="upi-option">
-                    <img src="/api/placeholder/80/40" alt="ICICI" />
+                    <img src="../image/netbanking/icici.png" alt="ICICI" />
                     <div>ICICI</div>
                   </div>
                   <div class="upi-option">
-                    <img src="/api/placeholder/80/40" alt="SBI" />
+                    <img src="../image/netbanking/sbi.png" alt="SBI" />
                     <div>SBI</div>
                   </div>
                 </div>
@@ -384,7 +383,7 @@
             <!-- Cash on Delivery -->
             <div class="payment-method">
               <div class="payment-header">
-                <i class="fa fa-money payment-icon"></i>
+                <i class="fa fa-money-bill payment-icon"></i>
                 <span class="payment-title">Cash on Delivery</span>
               </div>
               <div class="payment-content">
