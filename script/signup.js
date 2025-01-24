@@ -1,6 +1,6 @@
 async function submitForm(formData) {
   try {
-    const response = await fetch("http://localhost:4000/signup", {
+    const response = await fetch("https://ecom-backend-wp2m.onrender.com/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

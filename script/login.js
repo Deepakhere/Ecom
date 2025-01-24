@@ -4,7 +4,7 @@ const handleSubmit = (event) => {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
-  fetch("http://localhost:4000/login", {
+  fetch("https://ecom-backend-wp2m.onrender.com/login", {
     method: "POST",
     credentials: "include",
     headers: {
@@ -34,12 +34,12 @@ const onClickGoogleAuth = () => {
     return;
   }
 
-  window.location.href = "http://localhost:4000/auth/google";
+  window.location.href = "https://ecom-backend-wp2m.onrender.com/auth/google";
 };
 
 document.addEventListener("DOMContentLoaded", async () => {
   try {
-    const response = await fetch("http://localhost:4000/auth/status", {
+    const response = await fetch("https://ecom-backend-wp2m.onrender.com/auth/status", {
       credentials: "include",
     });
     const data = await response.json();
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 const onClickInstagramAuth = () => {
-  window.location.href = "http://localhost:4000/auth/instagram";
+  window.location.href = "https://ecom-backend-wp2m.onrender.com/auth/instagram";
 };
 
 const cartCounter = document.getElementById("cart-counter");

@@ -128,15 +128,19 @@ if (cartItems.length === 0) {
 
 const checkUserLoggedIn = async () => {
   try {
-    const response = await fetch("http://localhost:4000/isLoggedIn", {
-      credentials: "include",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-    });
-
+    const response = await fetch(
+      "https://ecom-backend-wp2m.onrender.com/isLoggedIn",
+      {
+        credentials: "include",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      }
+    );
+console.log(response)
     const data = await response.json();
+    console.log(data);
     if (data?.isValid) {
       navigateToSection("address");
     } else {
@@ -234,13 +238,16 @@ function validateForm(event) {
 
 const onSaveAndContinueToPay = async () => {
   try {
-    const response = await fetch("http://localhost:4000/isLoggedIn", {
-      credentials: "include",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-    });
+    const response = await fetch(
+      "https://ecom-backend-wp2m.onrender.com/isLoggedIn",
+      {
+        credentials: "include",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
     const data = await response.json();
     if (data?.isValid) {
@@ -259,23 +266,26 @@ const onSaveAddress = async () => {
   const formData = new FormData(document.getElementById("addressForm"));
   console.log(formData, "form");
   try {
-    const response = await fetch("http://localhost:4000/save-address", {
-      method: "POST",
-      credentials: "include",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: formData.get("name"),
-        mobile: formData.get("mobile"),
-        pincode: formData.get("pincode"),
-        address: formData.get("address"),
-        locality: formData.get("locality"),
-        city: formData.get("city"),
-        state: formData.get("state"),
-        addressType: formData.get("addressType"),
-      }),
-    });
+    const response = await fetch(
+      "https://ecom-backend-wp2m.onrender.com/save-address",
+      {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.get("name"),
+          mobile: formData.get("mobile"),
+          pincode: formData.get("pincode"),
+          address: formData.get("address"),
+          locality: formData.get("locality"),
+          city: formData.get("city"),
+          state: formData.get("state"),
+          addressType: formData.get("addressType"),
+        }),
+      }
+    );
 
     const data = await response.json();
     if (data?.isSuccess) {
@@ -379,7 +389,7 @@ const onClickPayNow = async () => {
 
   try {
     const response = await fetch(
-      "http://localhost:4000/create-payment-intent",
+      "https://ecom-backend-wp2m.onrender.com/create-payment-intent",
       {
         method: "POST",
         credentials: "include",
