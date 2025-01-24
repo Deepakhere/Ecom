@@ -73,7 +73,7 @@ function topFunction() {
 
 document.addEventListener("DOMContentLoaded", async () => {
   try {
-    const response = await fetch("http://localhost:4000/isLoggedIn", {
+    const response = await fetch("https://ecom-backend-wp2m.onrender.com/isLoggedIn", {
       credentials: "include",
       headers: {
         Accept: "application/json",
