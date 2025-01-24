@@ -129,27 +129,29 @@ if (cartItems.length === 0) {
 const checkUserLoggedIn = async () => {
   try {
     const response = await fetch(
-      "https://ecom-backend-wp2m.onrender.com/isLoggedIn",
+      "https://ecom-backend-wp2m.onrender.com/is-logged-in",
       {
-        credentials: "include",
+        method: "GET",
+        credentials: "include", // Crucial
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
         },
       }
     );
-console.log(response)
+
     const data = await response.json();
-    console.log(data);
-    if (data?.isValid) {
+    console.log("Login Check Response:", data);
+
+    if (data.isValid) {
       navigateToSection("address");
     } else {
       alert("Please log in to continue.");
       window.location.href = "../pages/login.html";
     }
   } catch (error) {
-    console.error("Error checking auth status:", error);
-    alert("");
+    console.error("Authentication Check Error:", error);
+    alert("Authentication failed");
   }
 };
 
@@ -239,7 +241,7 @@ function validateForm(event) {
 const onSaveAndContinueToPay = async () => {
   try {
     const response = await fetch(
-      "https://ecom-backend-wp2m.onrender.com/isLoggedIn",
+      "https://ecom-backend-wp2m.onrender.com/is-logged-in",
       {
         credentials: "include",
         headers: {

@@ -73,13 +73,17 @@ function topFunction() {
 
 document.addEventListener("DOMContentLoaded", async () => {
   try {
-    const response = await fetch("https://ecom-backend-wp2m.onrender.com/isLoggedIn", {
-      credentials: "include",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-    });
+    const response = await fetch(
+      "https://ecom-backend-wp2m.onrender.com/is-logged-in",
+      {
+        method: "GET",
+        credentials: "include",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      }
+    );
     const data = await response.json();
     console.log(data);
     if (data?.isValid) {
