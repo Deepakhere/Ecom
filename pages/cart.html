@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../style/checkout-form/style.css" />
     <link rel="stylesheet" href="../style/payment/style.css" />
     <link rel="stylesheet" href="../style/address/style.css" />
+    <link rel="stylesheet" href="../style/notification/style.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap"
       rel="stylesheet"
@@ -49,11 +50,12 @@
       </div>
     </div>
 
+    <div id="notification-container" class="notification-container"></div>
     <div class="step-container">
       <div class="stepper">
         <div class="step active" data-step="bag">BAG</div>
         <div class="step-divider"></div>
-        <div class="step" data-step="address">ADDRESS</div>
+        <div class="step" data-step="address" id="address-step">ADDRESS</div>
         <div class="step-divider"></div>
         <div class="step" data-step="payment">PAYMENT</div>
       </div>
@@ -120,7 +122,7 @@
               <strong>₹699</strong>
             </div>
 
-            <button class="place-order-btn" onclick="checkUserLoggedIn()">
+            <button class="place-order-btn" onclick="onPlaceOrder()">
               PLACE ORDER
             </button>
           </div>
@@ -131,7 +133,7 @@
       </div>
 
       <div class="step-content" id="address-content">
-        <div class="checkout-container">
+        <div class="checkout-container" id="checkout-container">
           <h2 class="form-title">Add Shipping Address</h2>
           <form id="addressForm" onsubmit="return validateForm(event)">
             <!-- Contact Details Section -->

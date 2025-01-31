@@ -73,6 +73,7 @@ function topFunction() {
 
 document.addEventListener("DOMContentLoaded", async () => {
   try {
+    const accessToken = getCookie("access_token");
     const response = await fetch(
       "https://ecom-backend-wp2m.onrender.com/is-logged-in",
       {
@@ -80,12 +81,13 @@ document.addEventListener("DOMContentLoaded", async () => {
         credentials: "include",
         headers: {
           Accept: "application/json",
-          "Content-Type": "application/json",
+          "Content-Type": "applicax`tion/json",
+          access_token: accessToken,
         },
       }
     );
     const data = await response.json();
-    console.log(data);
+
     if (data?.isValid) {
       let loginText = document.getElementById("login-text");
       loginText.innerHTML = "LOGOUT";
@@ -94,6 +96,17 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.error("Error checking auth status:", error);
   }
 });
+
+function getCookie(name) {
+  const cookies = document.cookie.split(";");
+  for (let cookie of cookies) {
+    const [cookieName, cookieValue] = cookie.split("=").map((c) => c.trim());
+    if (cookieName === name) {
+      return decodeURIComponent(cookieValue);
+    }
+  }
+  return null;
+}
 
 function updateCartCounter() {
   const cartCounter = document.getElementById("cart-counter");

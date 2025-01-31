@@ -1,0 +1,80 @@
+.notification-container {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.notification {
+  background-color: white;
+  border-left: 4px solid #4caf50;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  animation: slideIn 0.5s ease-out;
+  min-width: 300px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.notification-icon {
+  display: flex;
+  align-items: center;
+}
+
+.notification-message {
+  flex-grow: 1;
+}
+
+.notification-close {
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+  padding: 4px;
+}
+
+/* Type-specific styles */
+.notification.success {
+  border-left-color: #4caf50;
+}
+.notification.success .notification-icon {
+  color: #4caf50;
+}
+
+.notification.error {
+  border-left-color: #f44336;
+}
+.notification.error .notification-icon {
+  color: #f44336;
+}
+
+.notification.warning {
+  border-left-color: #ff9800;
+}
+.notification.warning .notification-icon {
+  color: #ff9800;
+}
+
+.notification.info {
+  border-left-color: #2196f3;
+}
+.notification.info .notification-icon {
+  color: #2196f3;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

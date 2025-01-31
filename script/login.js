@@ -15,7 +15,11 @@ const handleSubmit = (event) => {
     .then((result) => result.json())
     .then((response) => {
       if (response.isSuccess) {
-        window.location.href = "../index.html";
+        document.cookie = `access_token=${response.access_token}; expires=24 * 60 * 60 * 1000; path=/;`;
+
+        setTimeout(() => {
+          window.location.href = "../index.html";
+        }, 1000);
       } else {
         alert(response.message);
       }
@@ -37,25 +41,26 @@ const onClickGoogleAuth = () => {
   window.location.href = "https://ecom-backend-wp2m.onrender.com/auth/google";
 };
 
-document.addEventListener("DOMContentLoaded", async () => {
-  try {
-    const response = await fetch("https://ecom-backend-wp2m.onrender.com/auth/status", {
-      credentials: "include",
-    });
-    const data = await response.json();
-    if (data.authenticated) {
-      window.location.href = "/index.html";
-    }
-  } catch (error) {
-    console.error("Error checking auth status:", error);
-  }
-});
-
 const onClickInstagramAuth = () => {
-  window.location.href = "https://ecom-backend-wp2m.onrender.com/auth/instagram";
+  window.location.href =
+    "https://ecom-backend-wp2m.onrender.com/auth/instagram";
 };
 
 const cartCounter = document.getElementById("cart-counter");
 const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
 cartCounter.textContent = cartItems.length;
 cartCounter.style.display = cartItems.length > 0 ? "block" : "0";
+
+// document.addEventListener("DOMContentLoaded", async () => {
+//   try {
+//     const response = await fetch("https://ecom-backend-wp2m.onrender.com/auth/status", {
+//       credentials: "include",
+//     });
+//     const data = await response.json();
+//     if (data.authenticated) {
+//       window.location.href = "/index.html";
+//     }
+//   } catch (error) {
+//     console.error("Error checking auth status:", error);
+//   }
+// });

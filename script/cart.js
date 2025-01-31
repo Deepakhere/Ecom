@@ -1,5 +1,83 @@
 const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
 
+// function to show notification
+const showNotification = (message, type = "info", duration = 2000) => {
+  const container = document.getElementById("notification-container");
+
+  // Create notification element
+  const notification = document.createElement("div");
+  notification.className = `notification ${type}`;
+
+  // Add icon based on type
+  const iconSVG = getIconForType(type);
+  const iconContainer = document.createElement("span");
+  iconContainer.className = "notification-icon";
+  iconContainer.innerHTML = iconSVG;
+
+  // Add message
+  const messageText = document.createElement("span");
+  messageText.className = "notification-message";
+  messageText.textContent = message;
+
+  // Add close button
+  const closeButton = document.createElement("span");
+  closeButton.className = "notification-close";
+  closeButton.innerHTML = "×";
+  closeButton.onclick = () => {
+    notification.remove();
+  };
+
+  // Assemble notification
+  notification.appendChild(iconContainer);
+  notification.appendChild(messageText);
+  notification.appendChild(closeButton);
+
+  // Add to container
+  container.appendChild(notification);
+
+  // Auto remove after duration
+  if (duration) {
+    setTimeout(() => {
+      if (notification.parentElement) {
+        notification.remove();
+      }
+    }, duration);
+  }
+
+  return notification;
+};
+
+// Helper function to get appropriate icon
+const getIconForType = (type) => {
+  switch (type) {
+    case "success":
+      return `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+        <polyline points="22 4 12 14.01 9 11.01"/>
+      </svg>`;
+    case "error":
+      return `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="15" y1="9" x2="9" y2="15"/>
+        <line x1="9" y1="9" x2="15" y2="15"/>
+      </svg>`;
+    case "warning":
+      return `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+        <line x1="12" y1="9" x2="12" y2="13"/>
+        <line x1="12" y1="17" x2="12.01" y2="17"/>
+      </svg>`;
+    case "info":
+    default:
+      return `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="12" y1="16" x2="12" y2="12"/>
+        <line x1="12" y1="8" x2="12.01" y2="8"/>
+      </svg>`;
+  }
+};
+
+// getting cart items and displaying
 if (cartItems.length === 0) {
   window.location.href = "../pages/empty-bag.html";
 } else {
@@ -97,65 +175,37 @@ if (cartItems.length === 0) {
   };
 })();
 
-// Size selection functionality
-// const sizeOptions = document.querySelectorAll(".size-option:not(.disabled)");
+// get cookie function
+function getCookie(name) {
+  const cookies = document.cookie.split(";");
+  for (let cookie of cookies) {
+    const [cookieName, cookieValue] = cookie.split("=").map((c) => c.trim());
+    if (cookieName === name) {
+      return decodeURIComponent(cookieValue);
+    }
+  }
+  return null;
+}
 
-// sizeOptions.forEach((option) => {
-//   option.addEventListener("click", () => {
-//     // Remove selected class from all options
-//     sizeOptions.forEach((opt) => opt.classList.remove("selected"));
-//     // Add selected class to clicked option
-//     option.classList.add("selected");
-//   });
-// });
-
-// // Close button functionality
-// const closeBtn = document.querySelector(".close-btn");
-// closeBtn.addEventListener("click", () => {
-//   document.querySelector(".product-container").style.display = "none";
-// });
-
-// // Done button functionality
-// const doneBtn = document.querySelector(".done-btn");
-// doneBtn.addEventListener("click", () => {
-//   const selectedSize = document.querySelector(".size-option.selected");
-//   if (selectedSize) {
-//     alert(`Selected size: ${selectedSize.textContent}`);
-//   } else {
-//     alert("Please select a size");
-//   }
-// });
-
-const checkUserLoggedIn = async () => {
+// onclick to place order
+const onPlaceOrder = async () => {
   try {
-    const response = await fetch(
-      "https://ecom-backend-wp2m.onrender.com/is-logged-in",
-      {
-        method: "GET",
-        credentials: "include", // Crucial
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-      }
-    );
-
-    const data = await response.json();
-    console.log("Login Check Response:", data);
-
-    if (data.isValid) {
+    const accessToken = getCookie("access_token");
+    const data = await getAddressDetails(accessToken);
+    console.log(data, "here");
+    if (data) {
       navigateToSection("address");
+      createAddressPage(data);
     } else {
-      alert("Please log in to continue.");
       window.location.href = "../pages/login.html";
     }
   } catch (error) {
-    console.error("Authentication Check Error:", error);
-    alert("Authentication failed");
+    console.log(error, "geterror");
+    showNotification(`Please log in to continue: ${error}`, "info");
   }
 };
 
-function validateForm(event) {
+const validateForm = (event) => {
   event.preventDefault();
   let isValid = true;
   console.log(event, "check");
@@ -236,7 +286,7 @@ function validateForm(event) {
   }
 
   return isValid;
-}
+};
 
 const onSaveAndContinueToPay = async () => {
   try {
@@ -318,21 +368,105 @@ const navigateToSection = (section) => {
     targetContent.classList.add("active");
   }
 
-  if (section === "address") {
-    steps.forEach((step) => {
-      step.addEventListener("click", () => {
-        // Remove active class from all steps
-        steps.forEach((s) => s.classList.remove("active"));
-        contents.forEach((c) => c.classList.remove("active"));
+  if (section === "addAddress") {
+    const addressStep = document.getElementById("address-step");
+    addressStep.classList.add("active");
 
-        // Add active class to clicked step
-        step.classList.add("active");
-        document
-          .getElementById(`${step.dataset.step}-content`)
-          .classList.add("active");
-      });
-    });
+    const addressContent = document.getElementById("address-content");
+    addressContent.classList.add("active");
+
+    const addressItems = document.getElementById("address-items");
+    addressItems.style.display = "none";
+
+    const checkoutContainer = document.getElementById("checkout-container");
+    checkoutContainer.style.display = "block";
+
+    // steps.forEach((step) => {
+    // step.addEventListener("click", () => {
+    //   // Remove active class from all steps
+    //   steps.forEach((s) => s.classList.remove("active"));
+    //   contents.forEach((c) => c.classList.remove("active"));
+
+    //   // Add active class to clicked step
+    //   step.classList.add("active");
+    //   document
+    //     .getElementById(`${step.dataset.step}-content`)
+    //     .classList.add("active");
+    //   });
+    // });
   }
+};
+
+const getAddressDetails = async (accessToken) => {
+  try {
+    const response = await fetch("https://ecom-backend-wp2m.onrender.com/get-address", {
+      method: "GET",
+      credentials: "include",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        access_token: accessToken,
+      },
+    });
+
+    const result = await response.json();
+    return result.data;
+  } catch (err) {
+    console.error("Error fetching address data:", err);
+  }
+};
+
+const createAddressPage = (data) => {
+  const addressItems = `<div class="price-details" id="address-items">
+            <h3>${data.name}</h3>
+            <div class="price-row">
+              <span>${data.pincode}</span>
+              <button onclick="navigateToSection("address")" class="apply-btn">EDIT</button>
+            </div>
+
+            <h3>${data.address}</h3>
+
+            <h3>${data.city}</h3>
+            <div class="price-row">
+              <span>Total MRP</span>
+              <span>₹2,799</span>
+            </div>
+            <div class="price-row">
+              <span>Discount on MRP</span>
+              <span class="discount">-₹2,100</span>
+            </div>
+            <div class="price-row">
+              <span>Platform Fee</span>
+              <span>FREE</span>
+            </div>
+            <div class="price-row">
+              <span>Shipping Fee</span>
+              <span>FREE</span>
+            </div>
+            <hr />
+            <div class="price-row">
+              <strong>Total Amount</strong>
+              <strong>₹699</strong>
+            </div>
+
+            <button class="place-order-btn" onclick=navigateToSection("payment")>
+              PLACE ORDER
+            </button>
+            <span>OR</span>
+            <button class="place-order-btn" onclick=navigateToSection("addAddress")>
+              ADD ANOTHER ADDRESS
+            </button>
+          </div>`;
+
+  const newDiv = document.createElement("div");
+  newDiv.classList.add("cart-container");
+  newDiv.innerHTML = addressItems;
+
+  const getAddresscontent = document.getElementById("address-content");
+  const checkoutContainer = document.getElementById("checkout-container");
+
+  checkoutContainer.style.display = "none";
+  getAddresscontent.appendChild(newDiv);
 };
 
 document.querySelectorAll(".payment-method").forEach((method) => {
@@ -354,13 +488,13 @@ const elements = stripe.elements();
 const cardNumber = elements.create("cardNumber");
 const cardExpiry = elements.create("cardExpiry");
 const cardCvc = elements.create("cardCvc");
-const upi = elements.create("upi");
+// const upi = elements.create("upi");
 
 // Mount the elements into the DOM
 cardNumber.mount("#card-number-element");
 cardExpiry.mount("#card-expiry-element");
 cardCvc.mount("#card-cvc-element");
-upi.mount("#upi-element");
+// upi.mount("#upi-element");
 
 const onClickPayNow = async () => {
   const card = elements.getElement("cardNumber");
@@ -370,22 +504,23 @@ const onClickPayNow = async () => {
   const customerName = document.getElementById("customer-name").value;
 
   const amount = Number(getAmount.split("₹").join("").replace(",", ""));
-  console.log(card, expiry, cvc, amount, customerName);
+
   if (!card || !expiry || !cvc || !customerName) {
-    const modal = document.getElementById("error-modal");
-    modal.style.display = "block";
+    // const modal = document.getElementById("error-modal");
+    // modal.style.display = "block";
 
-    const closeModal = document.getElementById("close-error");
+    // const closeModal = document.getElementById("close-error");
 
-    closeModal.addEventListener("click", () => {
-      modal.style.display = "none";
-    });
+    // closeModal.addEventListener("click", () => {
+    //   modal.style.display = "none";
+    // });
 
-    window.onclick = (event) => {
-      if (event.target === modal) {
-        modal.style.display = "none";
-      }
-    };
+    // window.onclick = (event) => {
+    //   if (event.target === modal) {
+    //     modal.style.display = "none";
+    //   }
+    // };
+    showNotification("Please fill all the fields", "info");
     return;
   }
 
@@ -433,7 +568,7 @@ const onClickPayNow = async () => {
     }
   } catch (err) {
     console.error("Error during payment:", err);
-    alert("Payment failed. Please try again.");
+    showNotification("Payment failed. Please try again.", "error");
   }
 };
 
@@ -456,3 +591,32 @@ const onClickPayNow = async () => {
 // function closeModal() {
 //   modal.style.display = "none";
 // }
+
+// Size selection functionality
+// const sizeOptions = document.querySelectorAll(".size-option:not(.disabled)");
+
+// sizeOptions.forEach((option) => {
+//   option.addEventListener("click", () => {
+//     // Remove selected class from all options
+//     sizeOptions.forEach((opt) => opt.classList.remove("selected"));
+//     // Add selected class to clicked option
+//     option.classList.add("selected");
+//   });
+// });
+
+// // Close button functionality
+// const closeBtn = document.querySelector(".close-btn");
+// closeBtn.addEventListener("click", () => {
+//   document.querySelector(".product-container").style.display = "none";
+// });
+
+// // Done button functionality
+// const doneBtn = document.querySelector(".done-btn");
+// doneBtn.addEventListener("click", () => {
+//   const selectedSize = document.querySelector(".size-option.selected");
+//   if (selectedSize) {
+//     alert(`Selected size: ${selectedSize.textContent}`);
+//   } else {
+//     alert("Please select a size");
+//   }
+// });
