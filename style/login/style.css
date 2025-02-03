@@ -76,16 +76,23 @@ input:focus,
   color: white;
 }
 
-input[type="submit"] {
+#login-btn {
   background-color: #04aa6d;
   color: white;
   border: none;
   cursor: pointer;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin: 10px 0;
+  font-size: 16px;
+  transition: 0.3s;
 }
 
-input[type="submit"]:hover {
+/* input[type="submit"]:hover {
   background-color: #45a049;
-}
+} */
 
 .bottom-container {
   text-align: center;
@@ -110,5 +117,25 @@ input[type="submit"]:hover {
   .col {
     flex: 1 1 100%;
     text-align: center;
+  }
+}
+
+.loading-spinner {
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-top: 2px solid #ddd;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

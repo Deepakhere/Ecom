@@ -1,5 +1,10 @@
 const handleSubmit = (event) => {
   event.preventDefault();
+  const loginOrderBtn = document.getElementById("login-btn");
+
+  loginOrderBtn.innerHTML = `
+    <div class="loading-spinner"></div>
+  `;
 
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;

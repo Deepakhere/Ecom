@@ -198,16 +198,17 @@ const onPlaceOrder = async () => {
   try {
     const accessToken = getCookie("access_token");
     const data = await getAddressDetails(accessToken);
-    console.log(data, "here");
+
     if (data) {
       navigateToSection("address");
       createAddressPage(data);
     } else {
-      window.location.href = "../pages/login.html";
+      navigateToSection("address");
     }
   } catch (error) {
     console.log(error, "geterror");
     showNotification(`Please log in to continue: ${error}`, "info");
+    window.location.href = "../pages/login.html";
   }
 };
 
