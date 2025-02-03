@@ -51,6 +51,7 @@
     </div>
 
     <div id="notification-container" class="notification-container"></div>
+
     <div class="step-container">
       <div class="stepper">
         <div class="step active" data-step="bag">BAG</div>
@@ -64,12 +65,18 @@
         <div class="cart-container">
           <div class="cart-section" id="product-details">
             <div class="pin-code">
-              <span>Check delivery time & services</span>
-              <input
-                type="text"
-                class="pin-input"
-                placeholder="ENTER PIN CODE"
-              />
+              <span id="delivery-days">Check delivery time & services</span>
+              <div>
+                <input
+                  type="text"
+                  class="pin-input"
+                  id="pin-code"
+                  placeholder="ENTER PIN CODE"
+                />
+                <button onclick="getPincodeDetails()" class="check-btn">
+                  Check
+                </button>
+              </div>
             </div>
 
             <div class="offers">
@@ -82,6 +89,8 @@
                 Show More ▼
               </button>
             </div>
+
+            <div id="product-cards"></div>
           </div>
 
           <div class="price-details">
@@ -122,7 +131,11 @@
               <strong>₹699</strong>
             </div>
 
-            <button class="place-order-btn" onclick="onPlaceOrder()">
+            <button
+              class="place-order-btn"
+              onclick="onPlaceOrder()"
+              id="order-btn"
+            >
               PLACE ORDER
             </button>
           </div>
@@ -452,8 +465,47 @@
       <div class="help-text">Need Help? Contact Us</div>
     </div>
 
-    <script src="https://js.stripe.com/v3/"></script>
-    <script src="../script/cart.js"></script>
+    <!-- <script src="https://js.stripe.com/v3/"></script> -->
+    <!-- <script async src="../script/cart.js"></script> -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Load Stripe script
+        const stripeScript = document.createElement("script");
+        stripeScript.src = "https://js.stripe.com/v3/";
+        stripeScript.async = true; // Load asynchronously
+
+        // Append Stripe script to the body
+        document.body.appendChild(stripeScript);
+
+        // When Stripe script is loaded, load cart.js
+        stripeScript.onload = () => {
+          console.log("Stripe script loaded successfully!");
+
+          // Load cart.js script
+          const cartScript = document.createElement("script");
+          cartScript.src = "../script/cart.js";
+          cartScript.async = true; // Load asynchronously
+
+          // Append cart.js script to the body
+          document.body.appendChild(cartScript);
+
+          // Optional: Callback when cart.js is loaded
+          cartScript.onload = () => {
+            console.log("cart.js loaded successfully!");
+          };
+
+          // Optional: Handle cart.js loading errors
+          cartScript.onerror = () => {
+            console.error("Failed to load cart.js.");
+          };
+        };
+
+        // Optional: Handle Stripe script loading errors
+        stripeScript.onerror = () => {
+          console.error("Failed to load Stripe script.");
+        };
+      });
+    </script>
   </body>
 </html>
 

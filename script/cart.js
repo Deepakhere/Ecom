@@ -189,6 +189,12 @@ function getCookie(name) {
 
 // onclick to place order
 const onPlaceOrder = async () => {
+  const placeOrderBtn = document.getElementById("order-btn");
+
+  placeOrderBtn.innerHTML = `
+    <div class="loading-spinner"></div>
+  `;
+
   try {
     const accessToken = getCookie("access_token");
     const data = await getAddressDetails(accessToken);
@@ -399,15 +405,18 @@ const navigateToSection = (section) => {
 
 const getAddressDetails = async (accessToken) => {
   try {
-    const response = await fetch("https://ecom-backend-wp2m.onrender.com/get-address", {
-      method: "GET",
-      credentials: "include",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        access_token: accessToken,
-      },
-    });
+    const response = await fetch(
+      "https://ecom-backend-wp2m.onrender.com/get-address",
+      {
+        method: "GET",
+        credentials: "include",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          access_token: accessToken,
+        },
+      }
+    );
 
     const result = await response.json();
     return result.data;
@@ -467,6 +476,59 @@ const createAddressPage = (data) => {
 
   checkoutContainer.style.display = "none";
   getAddresscontent.appendChild(newDiv);
+};
+
+const getPincodeDetails = async () => {
+  const deliverablePincode = [
+    "Ahmedabad",
+    "Gandhi Nagar",
+    "Dhanbad",
+    "Nirsa",
+    "Howrah",
+  ];
+  const pincode = document.getElementById("pin-code").value;
+
+  const deliveryDaysElement = document.getElementById("delivery-days");
+
+  deliveryDaysElement.innerHTML = `
+    <div class="loading-spinner"></div> Loading...
+  `;
+
+  try {
+    const response = await fetch(
+      `https://india-pincode-api.p.rapidapi.com/v1/in/places/pincode?pincode=${pincode}`,
+      {
+        method: "GET",
+        headers: {
+          "x-rapidapi-host": "india-pincode-api.p.rapidapi.com",
+          "x-rapidapi-key":
+            "ceb232ec46msha866c3b178a920ep1021eejsne76eca1862a6",
+        },
+      }
+    );
+
+    const result = await response.json();
+    const pincodeList = result.result.find((pin) =>
+      deliverablePincode.includes(pin.districtname)
+    );
+
+    if (pincodeList) {
+      const deliveryDays =
+        pincodeList.districtname === "Ahmedabad"
+          ? "Deliver in 2 Days " + pincodeList.placename
+          : pincodeList.districtname === "Dhanbad"
+          ? "Deliver in 3 to 5 Days " + pincodeList.placename
+          : "Deliver in 5 days";
+
+      deliveryDaysElement.innerHTML = deliveryDays;
+    } else {
+      deliveryDaysElement.innerHTML =
+        "Delivery not available for this pincode.";
+    }
+  } catch (error) {
+    deliveryDaysElement.innerHTML = "Error fetching delivery details.";
+    console.error(error);
+  }
 };
 
 document.querySelectorAll(".payment-method").forEach((method) => {
