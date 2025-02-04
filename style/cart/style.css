@@ -320,6 +320,47 @@ select {
   text-decoration: none;
 }
 
+.address-item {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  font-size: 14px;
+  width: 480px;
+  position: relative;
+  left: 45%;
+  margin: 10px 0;
+  border: none;
+  border-radius: 4px solid;
+  background-color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+.pincode-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.address-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.add-address-btn,
+.select-address-btn {
+  background: #ff3f6c;
+  color: white;
+  border: none;
+  width: 100%;
+  padding: 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+
+}
+
 .loading-spinner {
   border: 2px solid rgba(0, 0, 0, 0.1);
   border-top: 2px solid #ff3f6c;

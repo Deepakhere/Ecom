@@ -106,8 +106,28 @@
 .address-type input[type="radio"]:checked + span {
   color: #ff3f6c;
 }
-
+.form-btn-section {
+  display: flex;
+  gap: 10px;
+}
 .submit-btn {
+  background: #ff3f6c;
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+  width: 100%;
+  max-width: 420px;
+  margin: 0px auto;
+  display: block;
+}
+
+.cancel-btn {
+  flex: content;
   background: #ff3f6c;
   color: white;
   border: none;

@@ -427,9 +427,9 @@ const getAddressDetails = async (accessToken) => {
 };
 
 const createAddressPage = (data) => {
-  const addressItems = `<div class="price-details" id="address-items">
+  const addressItems = `<div class="address-item" id="address-items">
             <h3>${data.name}</h3>
-            <div class="price-row">
+            <div class="pincode-row">
               <span>${data.pincode}</span>
               <button onclick="navigateToSection("address")" class="apply-btn">EDIT</button>
             </div>
@@ -458,14 +458,15 @@ const createAddressPage = (data) => {
               <strong>Total Amount</strong>
               <strong>₹699</strong>
             </div>
-
-            <button class="place-order-btn" onclick=navigateToSection("payment")>
-              PLACE ORDER
+            <div class="address-buttons">
+            <button class="select-address-btn" onclick=navigateToSection("payment")>
+              SELECT ADDRESS
             </button>
-            <span>OR</span>
-            <button class="place-order-btn" onclick=navigateToSection("addAddress")>
+            <span class="or">OR</span>
+            <button class="add-address-btn" onclick=navigateToSection("addAddress")>
               ADD ANOTHER ADDRESS
             </button>
+            </div>
           </div>`;
 
   const newDiv = document.createElement("div");
@@ -486,6 +487,7 @@ const getPincodeDetails = async () => {
     "Dhanbad",
     "Nirsa",
     "Howrah",
+    "B.Garden",
   ];
   const pincode = document.getElementById("pin-code").value;
 
@@ -519,7 +521,7 @@ const getPincodeDetails = async () => {
           ? "Deliver in 2 Days " + pincodeList.placename
           : pincodeList.districtname === "Dhanbad"
           ? "Deliver in 3 to 5 Days " + pincodeList.placename
-          : "Deliver in 5 days";
+          : "Deliver in 5 days " + pincodeList.placename;
 
       deliveryDaysElement.innerHTML = deliveryDays;
     } else {
@@ -531,6 +533,15 @@ const getPincodeDetails = async () => {
     console.error(error);
   }
 };
+
+const cancel = document.getElementById("cancel-btn");
+cancel.addEventListener("click", () => {
+  navigateToSection("bag");
+  const placeOrderBtn = document.getElementById("order-btn");
+
+  placeOrderBtn.innerHTML = "PLACE ORDER";
+  window.scrollTo(0, 0);
+});
 
 document.querySelectorAll(".payment-method").forEach((method) => {
   method.querySelector(".payment-header").addEventListener("click", () => {
@@ -569,20 +580,6 @@ const onClickPayNow = async () => {
   const amount = Number(getAmount.split("₹").join("").replace(",", ""));
 
   if (!card || !expiry || !cvc || !customerName) {
-    // const modal = document.getElementById("error-modal");
-    // modal.style.display = "block";
-
-    // const closeModal = document.getElementById("close-error");
-
-    // closeModal.addEventListener("click", () => {
-    //   modal.style.display = "none";
-    // });
-
-    // window.onclick = (event) => {
-    //   if (event.target === modal) {
-    //     modal.style.display = "none";
-    //   }
-    // };
     showNotification("Please fill all the fields", "info");
     return;
   }
